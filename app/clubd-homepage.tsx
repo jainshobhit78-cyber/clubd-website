@@ -21,7 +21,9 @@ import {
   Play,
   QrCode,
   Radar,
+  Rotate3D,
   Shirt,
+  ShieldCheck,
   Sparkles,
   Swords,
   Trophy,
@@ -257,6 +259,7 @@ function PhoneFrame({
 export function ClubDHomepage() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [notice, setNotice] = useState("");
+  const [twinCardFlipped, setTwinCardFlipped] = useState(false);
 
   useEffect(() => {
     const root = document.documentElement;
@@ -663,9 +666,17 @@ export function ClubDHomepage() {
               <span>MULTI-HYPHENATE YOU.</span>
             </h2>
           </div>
-          <p>
-            Athlete. Coder. Collector. Student. Creator. You were never one
-            thing—your profile shouldn’t be either.
+          <p className="identity-role-copy">
+            <span className="identity-role-tags">
+              <b>ATHLETE</b>
+              <b>CODER</b>
+              <b>COLLECTOR</b>
+              <b>STUDENT</b>
+              <b>CREATOR</b>
+            </span>
+            <span>
+              You were never one thing—your profile shouldn’t be either.
+            </span>
           </p>
         </header>
 
@@ -828,19 +839,122 @@ export function ClubDHomepage() {
             <Globe2 size={13} /> INDIA FIRST · BUILT FOR EVERY GRIND
           </small>
         </div>
-        <div className="download-card-stack reveal" aria-hidden="true">
-          <div className="identity-card card-back">
-            <span>PROOF SIDE</span>
-            <strong>47 DAYS</strong>
-            <b>CODING PULSE</b>
-            <i>VERIFIED / 001</i>
-          </div>
-          <div className="identity-card card-front">
-            <small>CLUBD DIGITAL TWIN</small>
-            <strong>SJ</strong>
-            <p>@SHOBHIT.J</p>
-            <span>LVL 28 · BUILDER</span>
-            <QrCode size={39} />
+        <div className="download-card-stack reveal">
+          <div className="showcase-card-shell">
+            <div
+              aria-label={`Anaya Rao's Digital Twin card. ${twinCardFlipped ? "Showing proof and stats side" : "Showing identity side"}. Press Enter to flip.`}
+              aria-pressed={twinCardFlipped}
+              className={`showcase-card-stage ${twinCardFlipped ? "is-flipped" : ""}`}
+              onClick={() => setTwinCardFlipped((current) => !current)}
+              onKeyDown={(event) => {
+                if (event.key === "Enter" || event.key === " ") {
+                  event.preventDefault();
+                  setTwinCardFlipped((current) => !current);
+                }
+              }}
+              role="button"
+              tabIndex={0}
+            >
+              <div className="showcase-card-rotor">
+                <article className="showcase-card-face showcase-card-front">
+                  <header className="showcase-card-chrome">
+                    <span>CLUBD / DT–026</span>
+                    <b>ICON</b>
+                    <i>#1987</i>
+                  </header>
+
+                  <div className="showcase-card-photo">
+                    <Image
+                      alt="Anaya Rao's ClubD Digital Twin portrait"
+                      fill
+                      sizes="(max-width: 560px) 80vw, 380px"
+                      src="/twin-card-anaya.webp"
+                      unoptimized
+                    />
+                    <span className="showcase-card-scan" />
+                    <span className="showcase-verified-pill">
+                      <BadgeCheck size={13} /> PROOF LOCKED
+                    </span>
+                    <span className="showcase-level-pill">LVL 34</span>
+                  </div>
+
+                  <div className="showcase-card-identity">
+                    <small>TASTEMAKER / LIVING IDENTITY</small>
+                    <h3>ANAYA RAO</h3>
+                    <p>@ANAYA.AFTERDARK · DELHI</p>
+                  </div>
+
+                  <div className="showcase-signature-stat">
+                    <span>
+                      <small>SIGNATURE STAT</small>
+                      <strong>FIT AURA</strong>
+                    </span>
+                    <b>92<small>%</small></b>
+                    <em>+11 THIS SEASON</em>
+                  </div>
+
+                  <footer className="showcase-card-metrics">
+                    <span><Zap size={12} /> 1,260 AURA</span>
+                    <span><Flame size={12} /> 47D PULSE</span>
+                    <span><ShieldCheck size={12} /> 9 VERIFIED</span>
+                  </footer>
+                </article>
+
+                <article className="showcase-card-face showcase-card-back">
+                  <header className="showcase-card-chrome">
+                    <span>BACK / RECEIPTS</span>
+                    <b>ICON</b>
+                    <i>LIVE</i>
+                  </header>
+
+                  <div className="showcase-proof-reel">
+                    <Image
+                      alt="Anaya Rao wearing her verified sneaker and jacket fit"
+                      fill
+                      sizes="(max-width: 560px) 80vw, 380px"
+                      src="/twin-card-proof.webp"
+                      unoptimized
+                    />
+                    <span className="showcase-reel-live"><i /> PROOF REEL</span>
+                    <div>
+                      <strong>OWNED IRL / FIT CHECK</strong>
+                      <small>ISSUED BY SOLE SOCIETY × CLUBD</small>
+                    </div>
+                  </div>
+
+                  <section className="showcase-stat-stack">
+                    <header><b>STAT STACK</b><span>LIVE FROM THE ARC</span></header>
+                    <div>
+                      <article><small>FIT AURA</small><strong>92<em>%</em></strong></article>
+                      <article><small>DEADLIFT</small><strong>140<em>KG</em></strong></article>
+                      <article><small>SHIP STREAK</small><strong>90<em>D</em></strong></article>
+                    </div>
+                  </section>
+
+                  <section className="showcase-badge-strip">
+                    <article><Trophy size={13} /><strong>OWNED IRL</strong><small>RARE</small></article>
+                    <article><Dumbbell size={13} /><strong>PLATE MOVER</strong><small>EPIC</small></article>
+                    <article><Blocks size={13} /><strong>NIGHT SHIPPER</strong><small>RARE</small></article>
+                  </section>
+
+                  <div className="showcase-qr-strip">
+                    <QrCode size={24} />
+                    <span><strong>SCAN INTO THIS TWIN</strong><small>PUBLIC LINK · OWNER CONTROLLED</small></span>
+                    <ArrowRight size={15} />
+                  </div>
+                </article>
+              </div>
+            </div>
+
+            <button
+              className="showcase-flip-control"
+              onClick={() => setTwinCardFlipped((current) => !current)}
+              type="button"
+            >
+              <Rotate3D size={18} />
+              {twinCardFlipped ? "SHOW IDENTITY SIDE" : "FLIP FOR PROOF + STATS"}
+            </button>
+            <small className="showcase-card-hint">TAP THE CARD · SEE THE RECEIPTS</small>
           </div>
         </div>
       </section>
