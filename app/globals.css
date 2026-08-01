@@ -961,15 +961,18 @@ main {
 }
 
 .live-proof-window {
-  display: grid;
-  width: min(790px, 100%);
-  margin: 0 auto;
+  display: flex;
+  width: max-content;
+  align-items: center;
+  gap: 18px;
+  animation: marquee 36s linear infinite;
 }
 
 .live-proof-card {
   display: grid;
   grid-template-columns: minmax(230px, 0.88fr) minmax(310px, 1.45fr);
-  width: 100%;
+  width: min(720px, 82vw);
+  flex: 0 0 min(720px, 82vw);
   min-height: 98px;
   align-items: center;
   gap: 18px;
@@ -980,7 +983,6 @@ main {
   box-shadow: 6px 6px 0 rgba(255, 50, 181, 0.38), inset 0 0 28px rgba(255, 255, 255, 0.025);
   color: #fff;
   transform: skewX(-3deg);
-  animation: live-proof-arrive 3.6s cubic-bezier(.18,.88,.24,1) both;
 }
 
 .live-proof-card.lime { border-color: rgba(199, 255, 45, 0.6); box-shadow: 4px 4px 0 rgba(199, 255, 45, 0.34); }
@@ -1101,13 +1103,6 @@ main {
 .live-proof-card.pink .live-proof-copy em,
 .live-proof-card.violet .live-proof-copy em { color: var(--pink); }
 .live-proof-card.cyan .live-proof-copy em { color: var(--cyan); }
-
-@keyframes live-proof-arrive {
-  0% { opacity: 0; transform: translateX(18%) skewX(-3deg) scale(.94); filter: blur(5px); }
-  15% { opacity: 1; transform: translateX(0) skewX(-3deg) scale(1.02); filter: blur(0); }
-  24%, 78% { opacity: 1; transform: translateX(0) skewX(-3deg) scale(1); }
-  100% { opacity: 0; transform: translateX(-10%) skewX(-3deg) scale(.97); filter: blur(2px); }
-}
 
 .campaign-section {
   position: relative;
@@ -4433,6 +4428,8 @@ main {
 
   .live-proof-card {
     grid-template-columns: minmax(132px, .85fr) minmax(174px, 1.15fr);
+    width: 90vw;
+    flex-basis: 90vw;
     min-height: 86px;
     gap: 8px;
     padding: 6px 9px 6px 6px;

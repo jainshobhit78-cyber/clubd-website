@@ -267,7 +267,6 @@ export function ClubDHomepage() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [notice, setNotice] = useState("");
   const [twinCardFlipped, setTwinCardFlipped] = useState(false);
-  const [activeProof, setActiveProof] = useState(0);
 
   useEffect(() => {
     const root = document.documentElement;
@@ -292,14 +291,6 @@ export function ClubDHomepage() {
       observer.disconnect();
       window.removeEventListener("pointermove", updatePointer);
     };
-  }, []);
-
-  useEffect(() => {
-    const proofTimer = window.setInterval(() => {
-      setActiveProof((current) => (current + 1) % liveProofs.length);
-    }, 3600);
-
-    return () => window.clearInterval(proofTimer);
   }, []);
 
   const showLaunchNotice = () => {
@@ -460,10 +451,8 @@ export function ClubDHomepage() {
         </div>
         <div className="proof-rush-feed" aria-label="Live ClubD proof updates">
           <div className="live-proof-window">
-            {(() => {
-              const proof = liveProofs[activeProof];
-              return (
-                <article className={`live-proof-card ${proof.tone}`} key={proof.name}>
+            {[...liveProofs, ...liveProofs].map((proof, index) => (
+                <article className={`live-proof-card ${proof.tone}`} key={`${proof.name}-${index}`}>
                   <div className="live-proof-profile">
                     <div className={`live-proof-avatar ${proof.avatar}`} aria-hidden="true">
                       <span>{proof.name.slice(0, 1)}</span>
@@ -480,8 +469,7 @@ export function ClubDHomepage() {
                     <em>{proof.detail}</em>
                   </div>
                 </article>
-              );
-            })()}
+            ))}
           </div>
         </div>
       </section>
