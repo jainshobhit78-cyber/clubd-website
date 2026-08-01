@@ -65,7 +65,7 @@ main {
   position: fixed;
   z-index: 100;
   inset: 0;
-  opacity: 0.045;
+  opacity: 0.018;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.84' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.9'/%3E%3C/svg%3E");
   pointer-events: none;
 }
@@ -982,7 +982,7 @@ main {
   background: rgba(12, 11, 18, 0.93);
   box-shadow: 6px 6px 0 rgba(255, 50, 181, 0.38), inset 0 0 28px rgba(255, 255, 255, 0.025);
   color: #fff;
-  transform: skewX(-3deg);
+  transform: none;
 }
 
 .live-proof-card.lime { border-color: rgba(199, 255, 45, 0.6); box-shadow: 4px 4px 0 rgba(199, 255, 45, 0.34); }
@@ -4074,6 +4074,29 @@ main {
   from {
     opacity: 0;
     transform: translateY(18px) scale(0.9);
+  }
+}
+
+@media (min-width: 861px) {
+  /* Desktop clarity pass: avoid resampling text-bearing and hero visuals. */
+  .phone-frame img,
+  .showcase-card-photo > img {
+    filter: none;
+    transform: none;
+  }
+
+  .showcase-card-stage:hover .showcase-card-photo > img {
+    transform: scale(1.025);
+  }
+
+  .campaign-image {
+    animation: none;
+    filter: contrast(1.035);
+    transform: none;
+  }
+
+  .site-header {
+    backdrop-filter: blur(14px);
   }
 }
 
