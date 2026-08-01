@@ -155,7 +155,7 @@ const statCards = [
   },
   {
     icon: Crown,
-    eyebrow: "GRAIL STATUS",
+    eyebrow: "GRAIL TIER",
     value: "3 RARE",
     note: "Top 4% collection rarity / The pieces people chase",
     tags: ["JORDAN 1", "LV SLING", "OAKLEY X"],
@@ -695,7 +695,7 @@ export function ClubDHomepage() {
             <p>YOUR FLEX HAS RECEIPTS.</p>
             <span>Sneakers, bags, shades and fits become verified badges—not empty claims.</span>
           </div>
-          <h2>YOUR VAULT.<br /><em>YOUR STATUS.</em></h2>
+          <h2>YOUR VAULT.<br /><em>YOUR FLEX.</em></h2>
         </div>
         <div className="stat-card-row">
           {statCards.map(({ eyebrow, featured, icon: Icon, note, status, tags, tone, value }) => (
