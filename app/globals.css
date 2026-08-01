@@ -973,7 +973,7 @@ main {
   grid-template-columns: minmax(230px, 0.88fr) minmax(310px, 1.45fr);
   width: min(720px, 82vw);
   flex: 0 0 min(720px, 82vw);
-  min-height: 98px;
+  min-height: 112px;
   align-items: center;
   gap: 18px;
   padding: 9px 18px 9px 9px;
@@ -1069,15 +1069,20 @@ main {
 .live-proof-copy {
   display: grid;
   min-width: 0;
-  gap: 5px;
+  gap: 4px;
 }
 
 .live-proof-copy small {
   display: flex;
   align-items: center;
   gap: 5px;
-  color: rgba(255, 255, 255, 0.5);
-  font-size: 0.47rem;
+  width: max-content;
+  padding: 3px 7px;
+  border: 1px solid currentColor;
+  border-radius: 2px 7px 2px 7px;
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--lime);
+  font-size: 0.53rem;
   font-weight: 950;
   letter-spacing: 0.12em;
 }
@@ -1086,7 +1091,7 @@ main {
   overflow: hidden;
   color: #fff;
   font-family: var(--font-display);
-  font-size: clamp(.9rem, 1.45vw, 1.25rem);
+  font-size: clamp(1rem, 1.65vw, 1.36rem);
   font-weight: 1000;
   letter-spacing: 0.035em;
   text-overflow: ellipsis;
@@ -1095,7 +1100,7 @@ main {
 
 .live-proof-copy em {
   color: var(--lime);
-  font-size: .5rem;
+  font-size: .56rem;
   font-weight: 950;
   letter-spacing: .095em;
   font-style: normal;
@@ -1104,6 +1109,16 @@ main {
 .live-proof-card.pink .live-proof-copy em,
 .live-proof-card.violet .live-proof-copy em { color: var(--pink); }
 .live-proof-card.cyan .live-proof-copy em { color: var(--cyan); }
+
+.live-proof-meta {
+  overflow: hidden;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: .48rem;
+  font-weight: 900;
+  letter-spacing: .075em;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
 
 .campaign-section {
   position: relative;
@@ -4431,7 +4446,7 @@ main {
     grid-template-columns: minmax(132px, .85fr) minmax(174px, 1.15fr);
     width: 90vw;
     flex-basis: 90vw;
-    min-height: 86px;
+    min-height: 102px;
     gap: 8px;
     padding: 6px 9px 6px 6px;
   }
@@ -4461,13 +4476,21 @@ main {
     gap: 3px;
   }
 
-  .live-proof-copy small,
+  .live-proof-copy small {
+    padding: 2px 5px;
+    font-size: .38rem;
+  }
+
   .live-proof-copy em {
-    font-size: .34rem;
+    font-size: .4rem;
   }
 
   .live-proof-copy strong {
-    font-size: .66rem;
+    font-size: .76rem;
+  }
+
+  .live-proof-meta {
+    font-size: .34rem;
   }
 
   .campaign-section {

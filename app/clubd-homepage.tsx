@@ -53,10 +53,10 @@ const proofRush = [
 ];
 
 const liveProofs = [
-  { name: "Vishal", handle: "@vishal.lifts", proof: "BENCH PRESS 145 KG", label: "NEW PR UNLOCKED", detail: "TOP 7% IN YOUR AREA", tone: "violet", avatar: "vishal" },
-  { name: "Tanya", handle: "@tanya.stylefile", proof: "NIKE JORDAN 1", label: "VAULT DROP", detail: "OWNERSHIP VERIFIED", tone: "pink", avatar: "tanya" },
-  { name: "Rohan", handle: "@rohan.builds", proof: "47 DAY CODE PULSE", label: "STREAK UPGRADED", detail: "+80 AURA JUST LANDED", tone: "cyan", avatar: "rohan" },
-  { name: "Zoya", handle: "@zoya.oncourt", proof: "GAME WINNER", label: "MATCH DAY PROOF", detail: "CLIMBED 12 SPOTS NEARBY", tone: "lime", avatar: "zoya" },
+  { name: "Vishal", handle: "@vishal.lifts", proof: "VISHAL HIT A 175 KG DEADLIFT", label: "BREAKING · NEW PR", detail: "VERIFIED · TOP 7% NEARBY", meta: "1 AUG · 10:31 PM · GOLD'S GYM, NEW DELHI", tone: "violet", avatar: "vishal" },
+  { name: "Tanya", handle: "@tanya.stylefile", proof: "TANYA ADDED NIKE JORDAN 1 TO HER VAULT", label: "JUST IN · STYLE DROP", detail: "OWNERSHIP VERIFIED · +200 AURA", meta: "1 AUG · 10:24 PM · SELECT CITYWALK, NEW DELHI", tone: "pink", avatar: "tanya" },
+  { name: "Rohan", handle: "@rohan.builds", proof: "ROHAN COMPLETED A 47 DAY CODE STREAK", label: "LIVE · STREAK UPGRADED", detail: "GITHUB VERIFIED · +80 AURA", meta: "1 AUG · 10:18 PM · KORAMANGALA, BENGALURU", tone: "cyan", avatar: "rohan" },
+  { name: "Zoya", handle: "@zoya.oncourt", proof: "ZOYA SCORED THE MATCH WINNER", label: "BREAKING · FULL TIME", detail: "CLUB VERIFIED · UP 12 SPOTS", meta: "1 AUG · 10:09 PM · BANDRA, MUMBAI", tone: "lime", avatar: "zoya" },
 ];
 
 const twinProofCards = [
@@ -467,6 +467,7 @@ export function ClubDHomepage() {
                     <small><BadgeCheck size={14} aria-hidden="true" /> {proof.label}</small>
                     <strong>{proof.proof}</strong>
                     <em>{proof.detail}</em>
+                    <span className="live-proof-meta">{proof.meta}</span>
                   </div>
                 </article>
             ))}
