@@ -1008,8 +1008,9 @@ main {
   overflow: hidden;
   border: 1px solid currentColor;
   border-radius: 4px 11px 4px 11px;
-  background-image: linear-gradient(135deg, rgba(68, 233, 255, 0.38), rgba(255, 50, 181, 0.28)), url("/clubd-proof-rush-v2.png");
-  background-size: 430px auto;
+  background-image: linear-gradient(135deg, rgba(68, 233, 255, 0.08), rgba(255, 50, 181, 0.08)), url("/clubd-profile-sprite.png");
+  background-repeat: no-repeat;
+  background-size: 200% 200%;
   box-shadow: inset 0 0 0 2px rgba(5, 5, 9, 0.58), 0 0 14px currentColor;
   color: var(--cyan);
 }
@@ -1027,16 +1028,16 @@ main {
   right: 3px;
   bottom: 1px;
   color: #fff;
-  font-size: 0.58rem;
+  display: none;
   font-weight: 1000;
   font-style: normal;
   text-shadow: 0 1px 4px #000;
 }
 
-.live-proof-avatar.vishal { background-position: 7% 12%; color: #a879ff; }
-.live-proof-avatar.tanya { background-position: 41% 15%; color: var(--pink); }
-.live-proof-avatar.rohan { background-position: 70% 14%; color: var(--cyan); }
-.live-proof-avatar.zoya { background-position: 92% 12%; color: var(--lime); }
+.live-proof-avatar.vishal { background-position: 0 0; color: #a879ff; }
+.live-proof-avatar.tanya { background-position: 100% 0; color: var(--pink); }
+.live-proof-avatar.rohan { background-position: 0 100%; color: var(--cyan); }
+.live-proof-avatar.zoya { background-position: 100% 100%; color: var(--lime); }
 
 .live-proof-person {
   display: grid;
