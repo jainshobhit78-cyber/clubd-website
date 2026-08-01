@@ -999,11 +999,12 @@ main {
 }
 
 .live-proof-window {
+  --proof-card-step: 738px;
   display: flex;
   width: max-content;
   align-items: center;
   gap: 18px;
-  animation: marquee 36s linear infinite;
+  animation: achievement-ticker 30s cubic-bezier(.72, 0, .28, 1) infinite;
 }
 
 .live-proof-card {
@@ -1129,11 +1130,11 @@ main {
   overflow: hidden;
   color: #fff;
   font-family: var(--font-display);
-  font-size: clamp(1rem, 1.65vw, 1.36rem);
+  font-size: clamp(1.08rem, 1.75vw, 1.48rem);
   font-weight: 1000;
-  letter-spacing: 0.035em;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  letter-spacing: 0.015em;
+  line-height: 1.02;
+  text-wrap: balance;
 }
 
 .live-proof-copy em {
@@ -3723,6 +3724,24 @@ main {
   }
 }
 
+@keyframes achievement-ticker {
+  0%, 18% {
+    transform: translateX(0);
+  }
+  22%, 43% {
+    transform: translateX(calc(0px - var(--proof-card-step)));
+  }
+  47%, 68% {
+    transform: translateX(calc(0px - var(--proof-card-step) - var(--proof-card-step)));
+  }
+  72%, 93% {
+    transform: translateX(calc(0px - var(--proof-card-step) - var(--proof-card-step) - var(--proof-card-step)));
+  }
+  100% {
+    transform: translateX(calc(0px - var(--proof-card-step) - var(--proof-card-step) - var(--proof-card-step) - var(--proof-card-step)));
+  }
+}
+
 @keyframes rush-float {
   0%,
   100% {
@@ -4596,11 +4615,15 @@ main {
     padding: 8px 14px;
   }
 
+  .live-proof-window {
+    --proof-card-step: calc(90vw + 18px);
+  }
+
   .live-proof-card {
     grid-template-columns: minmax(132px, .85fr) minmax(174px, 1.15fr);
     width: 90vw;
     flex-basis: 90vw;
-    min-height: 102px;
+    min-height: 116px;
     gap: 8px;
     padding: 6px 9px 6px 6px;
   }
@@ -4632,19 +4655,23 @@ main {
 
   .live-proof-copy small {
     padding: 2px 5px;
-    font-size: .38rem;
+    font-size: .41rem;
   }
 
   .live-proof-copy em {
-    font-size: .4rem;
+    font-size: .43rem;
   }
 
   .live-proof-copy strong {
-    font-size: .76rem;
+    display: -webkit-box;
+    font-size: .88rem;
+    line-height: 1.05;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
   }
 
   .live-proof-meta {
-    font-size: .34rem;
+    font-size: .37rem;
   }
 
   .campaign-section {
