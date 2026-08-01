@@ -144,31 +144,40 @@ const twinProofCards = [
 
 const statCards = [
   {
-    icon: Dumbbell,
-    eyebrow: "STRENGTH",
-    value: "145 KG",
-    note: "Bench PR · Top 8% nearby",
+    icon: Gem,
+    eyebrow: "THE VAULT",
+    value: "₹2.84L",
+    note: "Verified collection value / Every piece has receipts",
+    tags: ["5 SNEAKERS", "4 BAGS", "3 SHADES", "6 FITS"],
+    status: "18 PRODUCT BADGES LOCKED",
+    tone: "pink",
+    featured: true,
+  },
+  {
+    icon: Crown,
+    eyebrow: "GRAIL STATUS",
+    value: "3 RARE",
+    note: "Top 4% collection rarity / The pieces people chase",
+    tags: ["JORDAN 1", "LV SLING", "OAKLEY X"],
+    status: "COLLECTION HEAT: HIGH",
     tone: "lime",
   },
   {
-    icon: GraduationCap,
-    eyebrow: "BUILD STREAK",
-    value: "47 DAYS",
-    note: "Verified GitHub activity",
+    icon: Flame,
+    eyebrow: "AURA",
+    value: "2,480",
+    note: "+126 from verified products, rare drops and reactions",
+    tags: ["RARE DROP +80", "NEW BADGE +46"],
+    status: "SIGNAL RISING",
     tone: "cyan",
   },
   {
-    icon: Shirt,
-    eyebrow: "STYLE VAULT",
-    value: "18 PIECES",
-    note: "3 rare sneaker badges",
-    tone: "pink",
-  },
-  {
-    icon: Trophy,
-    eyebrow: "ARENA",
-    value: "TOP 5%",
-    note: "Climbed 12 spots this week",
+    icon: Zap,
+    eyebrow: "FLEX SCORE",
+    value: "874",
+    note: "Powered by Vault authenticity, rarity and community heat",
+    tags: ["VALUE 42%", "RARITY 33%", "HEAT 25%"],
+    status: "ELITE TIER",
     tone: "violet",
   },
 ];
@@ -682,20 +691,26 @@ export function ClubDHomepage() {
 
       <section className="stats-section reveal" aria-label="Example ClubD stats">
         <div className="stats-heading">
-          <p>YOUR LIFE ALREADY HAS STATS.</p>
-          <h2>WE JUST MAKE THEM HIT.</h2>
+          <div>
+            <p>YOUR FLEX HAS RECEIPTS.</p>
+            <span>Sneakers, bags, shades and fits become verified badges—not empty claims.</span>
+          </div>
+          <h2>YOUR VAULT.<br /><em>YOUR STATUS.</em></h2>
         </div>
         <div className="stat-card-row">
-          {statCards.map(({ eyebrow, icon: Icon, note, tone, value }) => (
-            <article className={`stat-card ${tone}`} key={eyebrow}>
+          {statCards.map(({ eyebrow, featured, icon: Icon, note, status, tags, tone, value }) => (
+            <article className={`stat-card ${tone}${featured ? " featured" : ""}`} key={eyebrow}>
               <span>
                 <Icon size={18} />
               </span>
               <small>{eyebrow}</small>
               <strong>{value}</strong>
               <p>{note}</p>
+              <div className="stat-tags">
+                {tags.map((tag) => <b key={tag}>{tag}</b>)}
+              </div>
               <i>
-                VERIFIED <BadgeCheck size={12} />
+                {status} <BadgeCheck size={12} />
               </i>
             </article>
           ))}
