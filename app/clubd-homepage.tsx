@@ -11,6 +11,8 @@ import {
   Crown,
   Dumbbell,
   Flame,
+  Footprints,
+  Gamepad2,
   Gem,
   Globe2,
   GraduationCap,
@@ -46,6 +48,89 @@ const proofRush = [
   { action: "SHIP MODE", signal: "47 DAY PULSE", tone: "cyan" },
   { action: "POSTERIZED", signal: "+88 AURA", tone: "pink" },
   { action: "NEW PB", signal: "11.42 SEC", tone: "lime" },
+];
+
+const twinProofCards = [
+  {
+    icon: Dumbbell,
+    eyebrow: "BENCH PRESS PR",
+    value: "175 KG",
+    detail: "GYM VERIFIED",
+    boost: "+120 AURA",
+    tone: "cyan",
+    slot: "one",
+    phase: "a",
+  },
+  {
+    icon: Dumbbell,
+    eyebrow: "BICEPS",
+    value: "18 IN",
+    detail: "TOP 18% NEARBY",
+    boost: "+65 AURA",
+    tone: "lime",
+    slot: "two",
+    phase: "a",
+  },
+  {
+    icon: Footprints,
+    eyebrow: "NIKE / VAULT",
+    value: "JORDAN 1",
+    detail: "OWNERSHIP VERIFIED",
+    boost: "+200 AURA",
+    tone: "pink",
+    slot: "three",
+    phase: "a",
+  },
+  {
+    icon: Blocks,
+    eyebrow: "CODING STREAK",
+    value: "120 DAYS",
+    detail: "GITHUB VERIFIED",
+    boost: "+140 AURA",
+    tone: "violet",
+    slot: "four",
+    phase: "a",
+  },
+  {
+    icon: Shirt,
+    eyebrow: "STYLE VAULT",
+    value: "TECH JACKET",
+    detail: "PRODUCT VERIFIED",
+    boost: "+80 AURA",
+    tone: "pink",
+    slot: "one",
+    phase: "b",
+  },
+  {
+    icon: Gamepad2,
+    eyebrow: "ESPORTS RANK",
+    value: "TOP 2%",
+    detail: "DIAMOND DIVISION",
+    boost: "+180 AURA",
+    tone: "violet",
+    slot: "two",
+    phase: "b",
+  },
+  {
+    icon: Trophy,
+    eyebrow: "FOOTBALL SEASON",
+    value: "23 GOALS",
+    detail: "CLUB VERIFIED",
+    boost: "+160 AURA",
+    tone: "lime",
+    slot: "three",
+    phase: "b",
+  },
+  {
+    icon: Zap,
+    eyebrow: "100M SPRINT PB",
+    value: "11.42 SEC",
+    detail: "EVENT VERIFIED",
+    boost: "+95 AURA",
+    tone: "cyan",
+    slot: "four",
+    phase: "b",
+  },
 ];
 
 const statCards = [
@@ -375,7 +460,7 @@ export function ClubDHomepage() {
             className="campaign-image"
             fill
             sizes="(max-width: 900px) 100vw, 94vw"
-            src="/og-twin-v2.png"
+            src="/og-twin-v3.png"
             unoptimized
           />
           <Image
@@ -384,7 +469,7 @@ export function ClubDHomepage() {
             className="campaign-glitch campaign-glitch-cyan"
             fill
             sizes="(max-width: 900px) 100vw, 94vw"
-            src="/og-twin-v2.png"
+            src="/og-twin-v3.png"
             unoptimized
           />
           <Image
@@ -393,7 +478,7 @@ export function ClubDHomepage() {
             className="campaign-glitch campaign-glitch-pink"
             fill
             sizes="(max-width: 900px) 100vw, 94vw"
-            src="/og-twin-v2.png"
+            src="/og-twin-v3.png"
             unoptimized
           />
           <div className="campaign-twin-copy">
@@ -421,14 +506,29 @@ export function ClubDHomepage() {
               WHEN REAL LIFE DOES.
             </strong>
           </div>
+          <div className="twin-proof-cloud" aria-label="Examples of proof added to a Digital Twin">
+            {twinProofCards.map(
+              ({ boost, detail, eyebrow, icon: Icon, phase, slot, tone, value }) => (
+                <article
+                  className={`campaign-proof-card proof-${tone} proof-slot-${slot} proof-phase-${phase}`}
+                  key={`${eyebrow}-${phase}`}
+                >
+                  <span className="campaign-proof-icon">
+                    <Icon size={17} />
+                  </span>
+                  <div>
+                    <small>{eyebrow}</small>
+                    <strong>{value}</strong>
+                    <p>{detail}</p>
+                  </div>
+                  <b>{boost}</b>
+                  <BadgeCheck className="campaign-proof-check" size={13} />
+                </article>
+              ),
+            )}
+          </div>
           <div className="campaign-scan" aria-hidden="true" />
           <div className="campaign-noise" aria-hidden="true" />
-          <span className="campaign-chip campaign-chip-one">
-            <BadgeCheck size={14} /> PROOF LAYER LOCKED
-          </span>
-          <span className="campaign-chip campaign-chip-two">
-            <Zap size={14} /> TWIN SIGNAL / 100%
-          </span>
           <span className="campaign-corner campaign-corner-one" aria-hidden="true" />
           <span className="campaign-corner campaign-corner-two" aria-hidden="true" />
         </div>
