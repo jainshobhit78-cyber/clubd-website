@@ -53,7 +53,9 @@ jobs:
           password: ${{ secrets.HOSTINGER_FTP_PASSWORD }}
           protocol: ftps
           local-dir: ./deploy/
-          server-dir: ./public_html/
+          # This restricted FTP account already starts inside clubd.in/public_html.
+          # Uploading to ./public_html/ created a nested folder that the live site cannot serve.
+          server-dir: ./
           exclude: |
             **/.git*
             **/.git*/**
