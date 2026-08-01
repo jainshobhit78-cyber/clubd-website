@@ -11,6 +11,7 @@
   --lime: #c7ff2d;
   --violet: #7757ff;
   --orange: #ff9b2f;
+  --font-display: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
   --pointer-x: 50vw;
   --pointer-y: 22vh;
 }
@@ -4079,6 +4080,20 @@ main {
 
 @media (min-width: 861px) {
   /* Desktop clarity pass: avoid resampling text-bearing and hero visuals. */
+  body {
+    font-family: Arial, "Helvetica Neue", sans-serif;
+    text-rendering: geometricPrecision;
+    -webkit-font-smoothing: auto;
+  }
+
+  .site-noise {
+    display: none;
+  }
+
+  img {
+    image-rendering: -webkit-optimize-contrast;
+  }
+
   .phone-frame img,
   .showcase-card-photo > img {
     filter: none;
@@ -4091,12 +4106,35 @@ main {
 
   .campaign-image {
     animation: none;
-    filter: contrast(1.035);
+    filter: contrast(1.075) saturate(1.03);
     transform: none;
   }
 
+  .pointer-aura {
+    display: none;
+  }
+
+  .campaign-glitch,
+  .showcase-card-photo::after,
+  .showcase-proof-reel::after {
+    display: none;
+  }
+
+  .campaign-twin-copy h3,
+  .proof-rush-title,
+  .live-proof-copy strong {
+    text-shadow: none;
+  }
+
   .site-header {
-    backdrop-filter: blur(14px);
+    background: rgba(5, 5, 9, 0.94);
+    backdrop-filter: none;
+  }
+
+  .live-proof-card,
+  .live-proof-profile,
+  .rush-activity {
+    backdrop-filter: none;
   }
 }
 
