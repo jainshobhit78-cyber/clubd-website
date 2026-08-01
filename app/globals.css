@@ -1098,9 +1098,11 @@ main {
 .live-proof-person strong {
   overflow: hidden;
   color: #fff;
-  font-family: var(--font-display);
-  font-size: .95rem;
-  letter-spacing: .03em;
+  font-family: Arial, "Helvetica Neue", sans-serif;
+  font-size: .9rem;
+  font-weight: 900;
+  font-synthesis: none;
+  letter-spacing: 0;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
@@ -1129,12 +1131,12 @@ main {
 .live-proof-copy strong {
   overflow: hidden;
   color: #fff;
-  font-family: var(--font-display);
-  font-size: clamp(1.08rem, 1.75vw, 1.48rem);
-  font-weight: 1000;
-  letter-spacing: 0.015em;
-  line-height: 1.02;
-  text-wrap: balance;
+  font-family: Arial, "Helvetica Neue", sans-serif;
+  font-size: clamp(1rem, 1.42vw, 1.25rem);
+  font-weight: 900;
+  font-synthesis: none;
+  letter-spacing: 0;
+  line-height: 1.14;
 }
 
 .live-proof-copy em {
@@ -4664,8 +4666,8 @@ main {
 
   .live-proof-copy strong {
     display: -webkit-box;
-    font-size: .88rem;
-    line-height: 1.05;
+    font-size: .84rem;
+    line-height: 1.16;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 2;
   }
