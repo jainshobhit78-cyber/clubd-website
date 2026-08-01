@@ -1,0 +1,61 @@
+name: Deploy ClubD to Hostinger
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: clubd-production
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get the ClubD website
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install and build
+        run: |
+          npm ci
+          npm run build
+
+      - name: Make the static website package
+        shell: bash
+        run: |
+          npm run start -- --host 127.0.0.1 --port 4173 > /tmp/clubd-vinext.log 2>&1 &
+          for attempt in {1..30}; do
+            if curl --fail --silent http://127.0.0.1:4173/ --output /tmp/clubd-index.html; then
+              break
+            fi
+            sleep 1
+          done
+          test -s /tmp/clubd-index.html
+          mkdir -p deploy
+          cp -a dist/client/. deploy/
+          cp /tmp/clubd-index.html deploy/index.html
+
+      - name: Publish to clubd.in
+        if: ${{ secrets.HOSTINGER_FTP_SERVER != '' && secrets.HOSTINGER_FTP_USERNAME != '' && secrets.HOSTINGER_FTP_PASSWORD != '' }}
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.HOSTINGER_FTP_SERVER }}
+          username: ${{ secrets.HOSTINGER_FTP_USERNAME }}
+          password: ${{ secrets.HOSTINGER_FTP_PASSWORD }}
+          protocol: ftps
+          local-dir: ./deploy/
+          server-dir: ./public_html/
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/node_modules/**
