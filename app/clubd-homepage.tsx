@@ -53,10 +53,10 @@ const proofRush = [
 ];
 
 const liveProofs = [
-  { name: "Vishal", proof: "145 KG BENCH", label: "NEW PR", tone: "violet", avatar: "vishal" },
-  { name: "Tanya", proof: "JORDAN 1 COPPED", label: "VAULT DROP", tone: "pink", avatar: "tanya" },
-  { name: "Rohan", proof: "47 DAY CODE PULSE", label: "SHIP MODE", tone: "cyan", avatar: "rohan" },
-  { name: "Zoya", proof: "SCORED THE WINNER", label: "MATCH DAY", tone: "lime", avatar: "zoya" },
+  { name: "Vishal", handle: "@vishal.lifts", proof: "BENCH PRESS 145 KG", label: "NEW PR UNLOCKED", detail: "TOP 7% IN YOUR AREA", tone: "violet", avatar: "vishal" },
+  { name: "Tanya", handle: "@tanya.stylefile", proof: "NIKE JORDAN 1", label: "VAULT DROP", detail: "OWNERSHIP VERIFIED", tone: "pink", avatar: "tanya" },
+  { name: "Rohan", handle: "@rohan.builds", proof: "47 DAY CODE PULSE", label: "STREAK UPGRADED", detail: "+80 AURA JUST LANDED", tone: "cyan", avatar: "rohan" },
+  { name: "Zoya", handle: "@zoya.oncourt", proof: "GAME WINNER", label: "MATCH DAY PROOF", detail: "CLIMBED 12 SPOTS NEARBY", tone: "lime", avatar: "zoya" },
 ];
 
 const twinProofCards = [
@@ -267,6 +267,7 @@ export function ClubDHomepage() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [notice, setNotice] = useState("");
   const [twinCardFlipped, setTwinCardFlipped] = useState(false);
+  const [activeProof, setActiveProof] = useState(0);
 
   useEffect(() => {
     const root = document.documentElement;
@@ -291,6 +292,14 @@ export function ClubDHomepage() {
       observer.disconnect();
       window.removeEventListener("pointermove", updatePointer);
     };
+  }, []);
+
+  useEffect(() => {
+    const proofTimer = window.setInterval(() => {
+      setActiveProof((current) => (current + 1) % liveProofs.length);
+    }, 3600);
+
+    return () => window.clearInterval(proofTimer);
   }, []);
 
   const showLaunchNotice = () => {
@@ -450,19 +459,29 @@ export function ClubDHomepage() {
           ))}
         </div>
         <div className="proof-rush-feed" aria-label="Live ClubD proof updates">
-          <div>
-            {[...liveProofs, ...liveProofs].map((proof, index) => (
-              <article className={`live-proof-card ${proof.tone}`} key={`${proof.name}-${index}`}>
-                <div className={`live-proof-avatar ${proof.avatar}`} aria-hidden="true">
-                  <span>{proof.name.slice(0, 1)}</span>
-                </div>
-                <div className="live-proof-copy">
-                  <small>{proof.label}</small>
-                  <strong>{proof.name} <em>{proof.proof}</em></strong>
-                </div>
-                <BadgeCheck className="live-proof-check" size={13} aria-label="Verified proof" />
-              </article>
-            ))}
+          <div className="live-proof-window">
+            {(() => {
+              const proof = liveProofs[activeProof];
+              return (
+                <article className={`live-proof-card ${proof.tone}`} key={proof.name}>
+                  <div className="live-proof-profile">
+                    <div className={`live-proof-avatar ${proof.avatar}`} aria-hidden="true">
+                      <span>{proof.name.slice(0, 1)}</span>
+                    </div>
+                    <div className="live-proof-person">
+                      <small>JUST CHECKED IN</small>
+                      <strong>{proof.name}</strong>
+                      <span>{proof.handle}</span>
+                    </div>
+                  </div>
+                  <div className="live-proof-copy">
+                    <small><BadgeCheck size={14} aria-hidden="true" /> {proof.label}</small>
+                    <strong>{proof.proof}</strong>
+                    <em>{proof.detail}</em>
+                  </div>
+                </article>
+              );
+            })()}
           </div>
         </div>
       </section>
