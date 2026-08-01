@@ -52,6 +52,13 @@ const proofRush = [
   { action: "NEW PB", signal: "11.42 SEC", tone: "lime" },
 ];
 
+const liveProofs = [
+  { name: "Vishal", proof: "145 KG BENCH", label: "NEW PR", tone: "violet", avatar: "vishal" },
+  { name: "Tanya", proof: "JORDAN 1 COPPED", label: "VAULT DROP", tone: "pink", avatar: "tanya" },
+  { name: "Rohan", proof: "47 DAY CODE PULSE", label: "SHIP MODE", tone: "cyan", avatar: "rohan" },
+  { name: "Zoya", proof: "SCORED THE WINNER", label: "MATCH DAY", tone: "lime", avatar: "zoya" },
+];
+
 const twinProofCards = [
   {
     icon: Dumbbell,
@@ -442,16 +449,20 @@ export function ClubDHomepage() {
             </article>
           ))}
         </div>
-        <div className="proof-rush-feed" aria-hidden="true">
+        <div className="proof-rush-feed" aria-label="Live ClubD proof updates">
           <div>
-            <span>VISHAL JUST LOCKED A 145 KG BENCH</span><i />
-            <span>TANYA ADDED RARE SNEAKERS TO HER VAULT</span><i />
-            <span>ROHAN SHIPPED HIS 47TH DAY OF CODE</span><i />
-            <span>ZOYA SCORED THE WINNER</span><i />
-            <span>VISHAL JUST LOCKED A 145 KG BENCH</span><i />
-            <span>TANYA ADDED RARE SNEAKERS TO HER VAULT</span><i />
-            <span>ROHAN SHIPPED HIS 47TH DAY OF CODE</span><i />
-            <span>ZOYA SCORED THE WINNER</span><i />
+            {[...liveProofs, ...liveProofs].map((proof, index) => (
+              <article className={`live-proof-card ${proof.tone}`} key={`${proof.name}-${index}`}>
+                <div className={`live-proof-avatar ${proof.avatar}`} aria-hidden="true">
+                  <span>{proof.name.slice(0, 1)}</span>
+                </div>
+                <div className="live-proof-copy">
+                  <small>{proof.label}</small>
+                  <strong>{proof.name} <em>{proof.proof}</em></strong>
+                </div>
+                <BadgeCheck className="live-proof-check" size={13} aria-label="Verified proof" />
+              </article>
+            ))}
           </div>
         </div>
       </section>

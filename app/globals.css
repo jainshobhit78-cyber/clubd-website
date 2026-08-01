@@ -953,34 +953,112 @@ main {
   z-index: 6;
   margin: 0 -3vw;
   overflow: hidden;
-  border-top: 1px solid rgba(199, 255, 45, 0.34);
-  border-bottom: 1px solid rgba(199, 255, 45, 0.34);
-  background: rgba(199, 255, 45, 0.045);
-  color: var(--lime);
+  padding-block: 8px;
+  border-top: 1px solid rgba(68, 233, 255, 0.3);
+  border-bottom: 1px solid rgba(199, 255, 45, 0.26);
+  background: linear-gradient(90deg, rgba(4, 11, 18, 0.98), rgba(13, 7, 18, 0.96), rgba(4, 11, 18, 0.98));
 }
 
 .proof-rush-feed > div {
   display: flex;
+  gap: 12px;
   width: max-content;
-  min-height: 38px;
   align-items: center;
   animation: marquee 42s linear infinite reverse;
 }
 
-.proof-rush-feed span {
-  padding-inline: 25px;
-  font-size: 0.45rem;
+.live-proof-card {
+  display: grid;
+  grid-template-columns: 37px auto 13px;
+  min-width: 225px;
+  min-height: 51px;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 10px 6px 6px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 5px 14px 5px 14px;
+  background: rgba(12, 11, 18, 0.93);
+  box-shadow: 4px 4px 0 rgba(255, 50, 181, 0.38), inset 0 0 22px rgba(255, 255, 255, 0.025);
+  color: #fff;
+  transform: skewX(-3deg);
+}
+
+.live-proof-card.lime { border-color: rgba(199, 255, 45, 0.6); box-shadow: 4px 4px 0 rgba(199, 255, 45, 0.34); }
+.live-proof-card.cyan { border-color: rgba(68, 233, 255, 0.6); box-shadow: 4px 4px 0 rgba(68, 233, 255, 0.32); }
+.live-proof-card.violet { border-color: rgba(132, 92, 255, 0.68); box-shadow: 4px 4px 0 rgba(132, 92, 255, 0.34); }
+
+.live-proof-avatar {
+  position: relative;
+  width: 37px;
+  height: 37px;
+  overflow: hidden;
+  border: 1px solid currentColor;
+  border-radius: 4px 11px 4px 11px;
+  background-image: linear-gradient(135deg, rgba(68, 233, 255, 0.38), rgba(255, 50, 181, 0.28)), url("/clubd-proof-rush-v2.png");
+  background-size: 340px auto;
+  box-shadow: inset 0 0 0 2px rgba(5, 5, 9, 0.58), 0 0 14px currentColor;
+  color: var(--cyan);
+}
+
+.live-proof-avatar::after {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, transparent 55%, rgba(255, 255, 255, 0.3));
+  content: "";
+}
+
+.live-proof-avatar span {
+  position: absolute;
+  z-index: 1;
+  right: 3px;
+  bottom: 1px;
+  color: #fff;
+  font-size: 0.48rem;
+  font-weight: 1000;
+  font-style: normal;
+  text-shadow: 0 1px 4px #000;
+}
+
+.live-proof-avatar.vishal { background-position: 7% 12%; color: #a879ff; }
+.live-proof-avatar.tanya { background-position: 41% 15%; color: var(--pink); }
+.live-proof-avatar.rohan { background-position: 70% 14%; color: var(--cyan); }
+.live-proof-avatar.zoya { background-position: 92% 12%; color: var(--lime); }
+
+.live-proof-copy {
+  display: grid;
+  min-width: 0;
+  gap: 2px;
+}
+
+.live-proof-copy small {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.39rem;
   font-weight: 950;
   letter-spacing: 0.12em;
+}
+
+.live-proof-copy strong {
+  overflow: hidden;
+  color: #fff;
+  font-size: 0.5rem;
+  font-weight: 1000;
+  letter-spacing: 0.035em;
+  text-overflow: ellipsis;
   white-space: nowrap;
 }
 
-.proof-rush-feed i {
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-  background: var(--pink);
-  box-shadow: 0 0 12px var(--pink);
+.live-proof-copy em {
+  color: var(--lime);
+  font-style: normal;
+}
+
+.live-proof-card.pink .live-proof-copy em,
+.live-proof-card.violet .live-proof-copy em { color: var(--pink); }
+.live-proof-card.cyan .live-proof-copy em { color: var(--cyan); }
+
+.live-proof-check {
+  color: var(--lime);
+  filter: drop-shadow(0 0 5px currentColor);
 }
 
 .campaign-section {
