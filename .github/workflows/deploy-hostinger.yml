@@ -53,9 +53,9 @@ jobs:
           password: ${{ secrets.HOSTINGER_FTP_PASSWORD }}
           protocol: ftps
           local-dir: ./deploy/
-          # This restricted FTP account already starts inside clubd.in/public_html.
-          # Uploading to ./public_html/ created a nested folder that the live site cannot serve.
-          server-dir: ./
+          # Hostinger exposes this restricted account one level below the actual
+          # web root. The live index.html is in the parent public_html folder.
+          server-dir: ../
           exclude: |
             **/.git*
             **/.git*/**
