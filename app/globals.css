@@ -835,6 +835,29 @@ main {
   animation: rush-float 4.6s cubic-bezier(0.45, 0, 0.25, 1) infinite;
 }
 
+.proof-rush-card::after {
+  position: absolute;
+  z-index: 3;
+  inset: 2% 2% 7%;
+  border: 2px solid currentColor;
+  border-radius: 8px 20px 8px 20px;
+  background: linear-gradient(180deg, color-mix(in srgb, currentColor 10%, transparent), transparent 62%);
+  box-shadow:
+    inset 0 0 38px color-mix(in srgb, currentColor 24%, transparent),
+    0 0 34px color-mix(in srgb, currentColor 62%, transparent);
+  content: "";
+  opacity: 0;
+  pointer-events: none;
+  animation: rush-entry-glow 1.05s cubic-bezier(.2,.8,.25,1) 1 both;
+}
+
+.rush-1::after { animation-delay: .35s; }
+.rush-2::after { animation-delay: .95s; }
+.rush-3::after { animation-delay: 1.55s; }
+.rush-4::after { animation-delay: 2.15s; }
+.rush-5::after { animation-delay: 2.75s; }
+.rush-6::after { animation-delay: 3.35s; }
+
 .proof-rush-card:nth-child(4n + 2) {
   animation-delay: -0.8s;
 }
@@ -864,7 +887,15 @@ main {
   background-size: 600% auto;
   filter: saturate(1.12) drop-shadow(0 0 20px rgba(68, 233, 255, 0.12));
   transition: filter 0.35s ease, transform 0.35s ease;
+  animation: rush-character-entry 1.05s cubic-bezier(.2,.8,.25,1) 1 both;
 }
+
+.rush-1 .rush-character { animation-delay: .35s; }
+.rush-2 .rush-character { animation-delay: .95s; }
+.rush-3 .rush-character { animation-delay: 1.55s; }
+.rush-4 .rush-character { animation-delay: 2.15s; }
+.rush-5 .rush-character { animation-delay: 2.75s; }
+.rush-6 .rush-character { animation-delay: 3.35s; }
 
 .proof-rush-card:hover .rush-character {
   filter: saturate(1.35) drop-shadow(0 0 26px currentColor);
@@ -3659,6 +3690,28 @@ main {
   }
   48% {
     transform: translateY(-11px) rotate(0.3deg);
+  }
+}
+
+@keyframes rush-entry-glow {
+  0%, 100% {
+    opacity: 0;
+    transform: scale(.985);
+  }
+  28%, 68% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes rush-character-entry {
+  0%, 100% {
+    filter: saturate(1.12) drop-shadow(0 0 20px rgba(68, 233, 255, 0.12));
+    transform: translateY(0) scale(1);
+  }
+  28%, 68% {
+    filter: saturate(1.42) contrast(1.08) drop-shadow(0 0 30px currentColor);
+    transform: translateY(-7px) scale(1.035);
   }
 }
 
