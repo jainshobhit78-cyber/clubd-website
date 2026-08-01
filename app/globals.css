@@ -1026,6 +1026,125 @@ main {
   animation: campaign-glitch-pink 7.2s steps(1, end) -1.8s infinite;
 }
 
+.campaign-twin-copy {
+  position: absolute;
+  z-index: 6;
+  top: 13%;
+  bottom: 10%;
+  left: 4.2%;
+  display: flex;
+  width: 47%;
+  flex-direction: column;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.campaign-twin-copy::before {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: -20px;
+  width: 2px;
+  background: linear-gradient(transparent, var(--cyan) 22%, var(--pink) 72%, transparent);
+  box-shadow: 0 0 15px var(--cyan);
+  content: "";
+  opacity: 0.62;
+  animation: twin-copy-line 3.8s ease-in-out infinite;
+}
+
+.campaign-twin-kicker {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--cyan);
+  font-size: 0.51rem;
+  font-weight: 950;
+  letter-spacing: 0.17em;
+  animation: twin-copy-kicker 5s steps(1, end) infinite;
+}
+
+.campaign-twin-copy h3 {
+  margin: 15px 0 0;
+  color: #fff;
+  font-size: clamp(2.25rem, 5.1vw, 5.45rem);
+  font-weight: 1000;
+  letter-spacing: -0.075em;
+  line-height: 0.84;
+  text-shadow: 0 5px 0 rgba(255, 255, 255, 0.03);
+  animation: twin-copy-breathe 6s cubic-bezier(0.45, 0, 0.2, 1) infinite;
+}
+
+.campaign-twin-copy h3 em {
+  background: linear-gradient(90deg, var(--pink), #ff78ce 46%, var(--cyan));
+  background-size: 180% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-style: normal;
+  animation: twin-copy-gradient 4.2s linear infinite;
+}
+
+.campaign-twin-copy > p {
+  max-width: 545px;
+  margin: 20px 0 0;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: clamp(0.72rem, 1.05vw, 1rem);
+  font-weight: 680;
+  line-height: 1.5;
+}
+
+.campaign-twin-tags {
+  display: flex;
+  margin-top: 18px;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+
+.campaign-twin-tags span {
+  padding: 6px 9px;
+  border: 1px solid rgba(68, 233, 255, 0.35);
+  border-radius: 5px;
+  background: rgba(68, 233, 255, 0.06);
+  color: var(--cyan);
+  font-size: 0.42rem;
+  font-weight: 950;
+  letter-spacing: 0.12em;
+  animation: twin-tag-signal 3.8s ease-in-out infinite;
+}
+
+.campaign-twin-tags span:nth-child(2) {
+  border-color: rgba(255, 50, 181, 0.4);
+  color: var(--pink);
+  animation-delay: -0.8s;
+}
+
+.campaign-twin-tags span:nth-child(3) {
+  border-color: rgba(119, 87, 255, 0.5);
+  color: #a995ff;
+  animation-delay: -1.6s;
+}
+
+.campaign-twin-tags span:nth-child(4) {
+  border-color: rgba(199, 255, 45, 0.43);
+  color: var(--lime);
+  animation-delay: -2.4s;
+}
+
+.campaign-twin-copy > strong {
+  margin-top: 17px;
+  color: rgba(255, 255, 255, 0.88);
+  font-size: clamp(0.58rem, 0.9vw, 0.82rem);
+  font-weight: 950;
+  letter-spacing: 0.09em;
+  line-height: 1.45;
+}
+
+.campaign-twin-copy > strong i {
+  color: var(--lime);
+  font-style: normal;
+  text-shadow: 0 0 14px rgba(199, 255, 45, 0.35);
+}
+
 .campaign-scan {
   position: absolute;
   z-index: 5;
@@ -2673,6 +2792,66 @@ main {
   }
 }
 
+@keyframes twin-copy-line {
+  0%,
+  100% {
+    opacity: 0.28;
+    transform: scaleY(0.72);
+  }
+  50% {
+    opacity: 0.9;
+    transform: scaleY(1);
+  }
+}
+
+@keyframes twin-copy-kicker {
+  0%,
+  72%,
+  76%,
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  73% {
+    opacity: 0.32;
+    transform: translateX(4px);
+  }
+  74% {
+    opacity: 0.88;
+    transform: translateX(-2px);
+  }
+}
+
+@keyframes twin-copy-breathe {
+  0%,
+  100% {
+    filter: drop-shadow(0 0 0 transparent);
+    transform: translateY(0);
+  }
+  50% {
+    filter: drop-shadow(0 0 17px rgba(255, 50, 181, 0.14));
+    transform: translateY(-3px);
+  }
+}
+
+@keyframes twin-copy-gradient {
+  to {
+    background-position: 180% center;
+  }
+}
+
+@keyframes twin-tag-signal {
+  0%,
+  100% {
+    box-shadow: 0 0 0 transparent;
+    opacity: 0.66;
+  }
+  50% {
+    box-shadow: 0 0 18px color-mix(in srgb, currentColor 22%, transparent);
+    opacity: 1;
+  }
+}
+
 @keyframes campaign-scan {
   0%,
   100% {
@@ -3162,6 +3341,61 @@ main {
 
   .campaign-frame {
     border-radius: 7px;
+  }
+
+  .campaign-twin-copy {
+    top: 8%;
+    bottom: 7%;
+    left: 5%;
+    width: 53%;
+  }
+
+  .campaign-twin-copy::before {
+    left: -8px;
+    width: 1px;
+  }
+
+  .campaign-twin-kicker {
+    gap: 3px;
+    font-size: 0.26rem;
+    letter-spacing: 0.1em;
+  }
+
+  .campaign-twin-kicker svg {
+    width: 7px;
+    height: 7px;
+  }
+
+  .campaign-twin-copy h3 {
+    margin-top: 5px;
+    font-size: 0.96rem;
+    letter-spacing: -0.06em;
+    line-height: 0.87;
+  }
+
+  .campaign-twin-copy > p {
+    margin-top: 6px;
+    font-size: 0.31rem;
+    line-height: 1.35;
+  }
+
+  .campaign-twin-tags {
+    margin-top: 6px;
+    gap: 2px;
+  }
+
+  .campaign-twin-tags span {
+    padding: 2px 3px;
+    border-radius: 2px;
+    font-size: 0.23rem;
+    letter-spacing: 0.06em;
+  }
+
+  .campaign-twin-copy > strong {
+    margin-top: 6px;
+    font-size: 0.28rem;
+    letter-spacing: 0.06em;
+    line-height: 1.35;
   }
 
   .campaign-chip {

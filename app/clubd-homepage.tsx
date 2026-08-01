@@ -371,11 +371,11 @@ export function ClubDHomepage() {
         </div>
         <div className="campaign-frame">
           <Image
-            alt="ClubD — Proof is the new profile"
+            alt="A ClubD Digital Twin evolving through real-life proof"
             className="campaign-image"
             fill
             sizes="(max-width: 900px) 100vw, 94vw"
-            src="/og.png"
+            src="/og-twin-v2.png"
             unoptimized
           />
           <Image
@@ -384,7 +384,7 @@ export function ClubDHomepage() {
             className="campaign-glitch campaign-glitch-cyan"
             fill
             sizes="(max-width: 900px) 100vw, 94vw"
-            src="/og.png"
+            src="/og-twin-v2.png"
             unoptimized
           />
           <Image
@@ -393,9 +393,34 @@ export function ClubDHomepage() {
             className="campaign-glitch campaign-glitch-pink"
             fill
             sizes="(max-width: 900px) 100vw, 94vw"
-            src="/og.png"
+            src="/og-twin-v2.png"
             unoptimized
           />
+          <div className="campaign-twin-copy">
+            <span className="campaign-twin-kicker">
+              <Orbit size={13} /> YOUR LIVING DIGITAL TWIN
+            </span>
+            <h3>
+              THE REAL YOU.
+              <br />
+              <em>NOW ALIVE.</em>
+            </h3>
+            <p>
+              What you wear. The stats you earn. The skills you build. The
+              wins you prove.
+            </p>
+            <div className="campaign-twin-tags" aria-label="Digital Twin attributes">
+              <span>STYLE</span>
+              <span>STATS</span>
+              <span>SKILLS</span>
+              <span>WINS</span>
+            </div>
+            <strong>
+              ONE TWIN THAT <i>EVOLVES</i>
+              <br />
+              WHEN REAL LIFE DOES.
+            </strong>
+          </div>
           <div className="campaign-scan" aria-hidden="true" />
           <div className="campaign-noise" aria-hidden="true" />
           <span className="campaign-chip campaign-chip-one">
@@ -408,9 +433,9 @@ export function ClubDHomepage() {
           <span className="campaign-corner campaign-corner-two" aria-hidden="true" />
         </div>
         <div className="campaign-caption">
-          <p>NOT A BIO. NOT A HIGHLIGHT REEL.</p>
-          <strong>ONE LIVING IDENTITY BUILT FROM THE RECEIPTS.</strong>
-          <span>SCROLL / THE SIGNAL GETS LOUDER ↓</span>
+          <p>STYLE · STATS · SKILLS · WINS</p>
+          <strong>EVERY REAL MOVE UPDATES THE DIGITAL YOU.</strong>
+          <span>PROOF IN / YOUR TWIN EVOLVES ↓</span>
         </div>
       </section>
 
