@@ -848,15 +848,18 @@ main {
   content: "";
   opacity: 0;
   pointer-events: none;
-  animation: rush-entry-glow 1.05s cubic-bezier(.2,.8,.25,1) 1 both;
 }
 
-.rush-1::after { animation-delay: .35s; }
-.rush-2::after { animation-delay: .95s; }
-.rush-3::after { animation-delay: 1.55s; }
-.rush-4::after { animation-delay: 2.15s; }
-.rush-5::after { animation-delay: 2.75s; }
-.rush-6::after { animation-delay: 3.35s; }
+.proof-rush-stage.is-scanning .proof-rush-card::after {
+  animation: rush-entry-glow 1.7s cubic-bezier(.2,.8,.25,1) 1 both;
+}
+
+.proof-rush-stage.is-scanning .rush-1::after { animation-delay: .45s; }
+.proof-rush-stage.is-scanning .rush-2::after { animation-delay: 1.55s; }
+.proof-rush-stage.is-scanning .rush-3::after { animation-delay: 2.65s; }
+.proof-rush-stage.is-scanning .rush-4::after { animation-delay: 3.75s; }
+.proof-rush-stage.is-scanning .rush-5::after { animation-delay: 4.85s; }
+.proof-rush-stage.is-scanning .rush-6::after { animation-delay: 5.95s; }
 
 .proof-rush-card:nth-child(4n + 2) {
   animation-delay: -0.8s;
@@ -887,15 +890,18 @@ main {
   background-size: 600% auto;
   filter: saturate(1.12) drop-shadow(0 0 20px rgba(68, 233, 255, 0.12));
   transition: filter 0.35s ease, transform 0.35s ease;
-  animation: rush-character-entry 1.05s cubic-bezier(.2,.8,.25,1) 1 both;
 }
 
-.rush-1 .rush-character { animation-delay: .35s; }
-.rush-2 .rush-character { animation-delay: .95s; }
-.rush-3 .rush-character { animation-delay: 1.55s; }
-.rush-4 .rush-character { animation-delay: 2.15s; }
-.rush-5 .rush-character { animation-delay: 2.75s; }
-.rush-6 .rush-character { animation-delay: 3.35s; }
+.proof-rush-stage.is-scanning .rush-character {
+  animation: rush-character-entry 1.7s cubic-bezier(.2,.8,.25,1) 1 both;
+}
+
+.proof-rush-stage.is-scanning .rush-1 .rush-character { animation-delay: .45s; }
+.proof-rush-stage.is-scanning .rush-2 .rush-character { animation-delay: 1.55s; }
+.proof-rush-stage.is-scanning .rush-3 .rush-character { animation-delay: 2.65s; }
+.proof-rush-stage.is-scanning .rush-4 .rush-character { animation-delay: 3.75s; }
+.proof-rush-stage.is-scanning .rush-5 .rush-character { animation-delay: 4.85s; }
+.proof-rush-stage.is-scanning .rush-6 .rush-character { animation-delay: 5.95s; }
 
 .proof-rush-card:hover .rush-character {
   filter: saturate(1.35) drop-shadow(0 0 26px currentColor);
@@ -1892,14 +1898,16 @@ main {
 }
 
 .twin-node small {
-  color: rgba(255, 255, 255, 0.35);
-  font-size: 0.38rem;
+  color: rgba(255, 255, 255, 0.58);
+  font-size: 0.45rem;
   font-weight: 900;
   letter-spacing: 0.1em;
 }
 
 .twin-node strong {
-  font-size: 0.57rem;
+  color: #fff;
+  font-size: 0.68rem;
+  font-weight: 950;
   letter-spacing: 0.05em;
 }
 
@@ -1943,6 +1951,38 @@ main {
 
 .node-build::after {
   right: 100%;
+}
+
+.node-aura {
+  bottom: 18%;
+  left: 2%;
+  border-color: rgba(255, 155, 47, 0.58);
+  animation-delay: -2.8s;
+}
+
+.node-aura::after {
+  left: 100%;
+  border-color: rgba(255, 155, 47, 0.42);
+}
+
+.node-aura > svg {
+  color: var(--orange);
+}
+
+.node-flex {
+  top: 48%;
+  right: -1%;
+  border-color: rgba(119, 87, 255, 0.62);
+  animation-delay: -3.3s;
+}
+
+.node-flex::after {
+  right: 100%;
+  border-color: rgba(119, 87, 255, 0.44);
+}
+
+.node-flex > svg {
+  color: #a98dff;
 }
 
 .twin-status {
@@ -4891,6 +4931,16 @@ main {
   }
 
   .node-build {
+    right: -4px;
+  }
+
+  .node-aura {
+    bottom: 14%;
+    left: -4px;
+  }
+
+  .node-flex {
+    top: 49%;
     right: -4px;
   }
 

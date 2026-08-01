@@ -285,10 +285,23 @@ export function ClubDHomepage() {
 
     const revealNodes = document.querySelectorAll(".reveal");
     revealNodes.forEach((node) => observer.observe(node));
+
+    const proofStage = document.querySelector(".proof-rush-stage");
+    const scanObserver = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry?.isIntersecting) return;
+        entry.target.classList.add("is-scanning");
+        scanObserver.unobserve(entry.target);
+      },
+      { threshold: 0.34 },
+    );
+    if (proofStage) scanObserver.observe(proofStage);
+
     window.addEventListener("pointermove", updatePointer, { passive: true });
 
     return () => {
       observer.disconnect();
+      scanObserver.disconnect();
       window.removeEventListener("pointermove", updatePointer);
     };
   }, []);
@@ -629,22 +642,36 @@ export function ClubDHomepage() {
           <div className="twin-node node-style">
             <Shirt size={14} />
             <span>
-              <small>STYLE MODULE</small>
-              <strong>SIGNATURE FIT</strong>
+              <small>FASHION</small>
+              <strong>FIT SCORE 92</strong>
             </span>
           </div>
           <div className="twin-node node-fitness">
             <Dumbbell size={14} />
             <span>
-              <small>POWER MATRIX</small>
-              <strong>TOP 8%</strong>
+              <small>STRENGTH</small>
+              <strong>175 KG PR</strong>
             </span>
           </div>
           <div className="twin-node node-build">
-            <Blocks size={14} />
+            <Sparkles size={14} />
             <span>
-              <small>BUILDER OS</small>
-              <strong>47 DAY PULSE</strong>
+              <small>SKILL</small>
+              <strong>BUILDER LVL 47</strong>
+            </span>
+          </div>
+          <div className="twin-node node-aura">
+            <Flame size={14} />
+            <span>
+              <small>AURA</small>
+              <strong>2,480 · ↑ 126</strong>
+            </span>
+          </div>
+          <div className="twin-node node-flex">
+            <Zap size={14} />
+            <span>
+              <small>FLEX SCORE</small>
+              <strong>874 · ELITE</strong>
             </span>
           </div>
           <span className="twin-status">
