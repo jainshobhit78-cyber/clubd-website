@@ -39,6 +39,15 @@ const proofSignals = [
   "FIND YOUR PEOPLE",
 ];
 
+const proofRush = [
+  { action: "FIT CHECK", signal: "+34 AURA", tone: "pink" },
+  { action: "TOP BINS", signal: "GOAL VERIFIED", tone: "lime" },
+  { action: "BENCH PR", signal: "145 KG", tone: "violet" },
+  { action: "SHIP MODE", signal: "47 DAY PULSE", tone: "cyan" },
+  { action: "POSTERIZED", signal: "+88 AURA", tone: "pink" },
+  { action: "NEW PB", signal: "11.42 SEC", tone: "lime" },
+];
+
 const statCards = [
   {
     icon: Dumbbell,
@@ -153,6 +162,7 @@ function PhoneFrame({
         priority={priority}
         sizes="(max-width: 760px) 78vw, 360px"
         src={image}
+        unoptimized
       />
       <figcaption>{label}</figcaption>
     </figure>
@@ -318,6 +328,92 @@ export function ClubDHomepage() {
         </div>
       </div>
 
+      <section className="proof-rush" aria-label="Real life becoming live proof">
+        <div className="proof-rush-heading">
+          <span>LIVE / ALL GRINDS</span>
+          <strong>THE WORLD IS FLEXING RIGHT NOW.</strong>
+          <i><span /> SIGNALS HITTING LIVE</i>
+        </div>
+        <div className="proof-rush-stage">
+          <div className="rush-laser rush-laser-one" aria-hidden="true" />
+          <div className="rush-laser rush-laser-two" aria-hidden="true" />
+          {proofRush.map(({ action, signal, tone }, index) => (
+            <article
+              className={`proof-rush-card rush-${index + 1} ${tone}`}
+              key={action}
+            >
+              <div className="rush-character" aria-hidden="true" />
+              <div className="rush-activity">
+                <small>{action}</small>
+                <strong>{signal}</strong>
+              </div>
+            </article>
+          ))}
+        </div>
+        <div className="proof-rush-feed" aria-hidden="true">
+          <div>
+            <span>VISHAL JUST LOCKED A 145 KG BENCH</span><i />
+            <span>TANYA ADDED RARE SNEAKERS TO HER VAULT</span><i />
+            <span>ROHAN SHIPPED HIS 47TH DAY OF CODE</span><i />
+            <span>ZOYA SCORED THE WINNER</span><i />
+            <span>VISHAL JUST LOCKED A 145 KG BENCH</span><i />
+            <span>TANYA ADDED RARE SNEAKERS TO HER VAULT</span><i />
+            <span>ROHAN SHIPPED HIS 47TH DAY OF CODE</span><i />
+            <span>ZOYA SCORED THE WINNER</span><i />
+          </div>
+        </div>
+      </section>
+
+      <section className="campaign-section reveal" id="campaign" aria-label="ClubD proof campaign">
+        <div className="campaign-topline">
+          <span>CLUBD / MANIFESTO 002</span>
+          <span><i /> LIVE IDENTITY SIGNAL</span>
+        </div>
+        <div className="campaign-frame">
+          <Image
+            alt="ClubD — Proof is the new profile"
+            className="campaign-image"
+            fill
+            sizes="(max-width: 900px) 100vw, 94vw"
+            src="/og.png"
+            unoptimized
+          />
+          <Image
+            alt=""
+            aria-hidden="true"
+            className="campaign-glitch campaign-glitch-cyan"
+            fill
+            sizes="(max-width: 900px) 100vw, 94vw"
+            src="/og.png"
+            unoptimized
+          />
+          <Image
+            alt=""
+            aria-hidden="true"
+            className="campaign-glitch campaign-glitch-pink"
+            fill
+            sizes="(max-width: 900px) 100vw, 94vw"
+            src="/og.png"
+            unoptimized
+          />
+          <div className="campaign-scan" aria-hidden="true" />
+          <div className="campaign-noise" aria-hidden="true" />
+          <span className="campaign-chip campaign-chip-one">
+            <BadgeCheck size={14} /> PROOF LAYER LOCKED
+          </span>
+          <span className="campaign-chip campaign-chip-two">
+            <Zap size={14} /> TWIN SIGNAL / 100%
+          </span>
+          <span className="campaign-corner campaign-corner-one" aria-hidden="true" />
+          <span className="campaign-corner campaign-corner-two" aria-hidden="true" />
+        </div>
+        <div className="campaign-caption">
+          <p>NOT A BIO. NOT A HIGHLIGHT REEL.</p>
+          <strong>ONE LIVING IDENTITY BUILT FROM THE RECEIPTS.</strong>
+          <span>SCROLL / THE SIGNAL GETS LOUDER ↓</span>
+        </div>
+      </section>
+
       <section className="intro-section reveal" id="intro">
         <p className="section-index">01 · THE SHIFT</p>
         <div>
@@ -375,6 +471,7 @@ export function ClubDHomepage() {
             height={1821}
             sizes="(max-width: 760px) 60vw, 360px"
             src="/clubd-twin.webp"
+            unoptimized
             width={864}
           />
           <div className="twin-scan" aria-hidden="true" />
@@ -482,8 +579,8 @@ export function ClubDHomepage() {
           />
           <PhoneFrame
             className="screen-two"
-            image="/clubd-flex-feed.jpeg"
-            label="ClubD Flex Feed"
+            image="/clubd-flex-feed-live.png"
+            label="The real ClubD Flex Feed preview"
           />
           <PhoneFrame
             className="screen-three"
