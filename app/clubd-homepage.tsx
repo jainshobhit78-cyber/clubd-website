@@ -416,7 +416,11 @@ export function ClubDHomepage() {
       <section className="proof-rush" aria-label="Real life becoming live proof">
         <div className="proof-rush-heading">
           <span>LIVE / ALL GRINDS</span>
-          <strong>THE WORLD IS FLEXING RIGHT NOW.</strong>
+          <strong className="proof-rush-title" aria-label="The world is flexing right now">
+            <span aria-hidden="true">THE WORLD IS</span>
+            <em aria-hidden="true">FLEXING</em>
+            <b aria-hidden="true">RIGHT NOW.</b>
+          </strong>
           <i><span /> SIGNALS HITTING LIVE</i>
         </div>
         <div className="proof-rush-stage">

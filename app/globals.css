@@ -722,11 +722,59 @@ main {
   letter-spacing: 0.16em;
 }
 
-.proof-rush-heading > strong {
+.proof-rush-title {
+  position: relative;
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.22em;
+  padding: 4px 10px 8px;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", "Arial Narrow", sans-serif;
+  font-size: clamp(1.5rem, 3vw, 2.9rem);
+  font-style: normal;
+  font-weight: 950;
+  letter-spacing: -0.035em;
+  line-height: 0.88;
+  text-transform: uppercase;
+  transform: skewX(-2deg);
+}
+
+.proof-rush-title::after {
+  position: absolute;
+  right: 7px;
+  bottom: 0;
+  left: 7px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--cyan), var(--pink) 48%, var(--lime));
+  box-shadow: 0 0 16px rgba(255, 50, 181, 0.7);
+  content: "";
+  transform: scaleX(0.72) rotate(-1deg);
+  animation: rush-title-line 2.6s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+}
+
+.proof-rush-title span,
+.proof-rush-title em,
+.proof-rush-title b {
+  font: inherit;
+  letter-spacing: inherit;
+  white-space: nowrap;
+}
+
+.proof-rush-title span {
   color: #fff;
-  font-size: clamp(1.1rem, 2.2vw, 2rem);
-  font-weight: 1000;
-  letter-spacing: -0.055em;
+}
+
+.proof-rush-title em {
+  color: var(--pink);
+  text-shadow:
+    2px 2px 0 rgba(68, 233, 255, 0.92),
+    0 0 20px rgba(255, 50, 181, 0.52);
+  animation: rush-title-hit 2.6s steps(1, end) infinite;
+}
+
+.proof-rush-title b {
+  color: transparent;
+  -webkit-text-stroke: 1.2px var(--lime);
+  filter: drop-shadow(0 0 8px rgba(199, 255, 45, 0.25));
 }
 
 .proof-rush-heading > i {
@@ -1153,10 +1201,10 @@ main {
   position: absolute;
   z-index: 7;
   display: grid;
-  width: clamp(150px, 14.4vw, 218px);
-  min-height: 82px;
-  padding: 10px 11px;
-  grid-template-columns: 34px minmax(0, 1fr) auto;
+  width: clamp(190px, 16.2vw, 248px);
+  min-height: 96px;
+  padding: 12px 13px;
+  grid-template-columns: 39px minmax(0, 1fr) auto;
   align-items: center;
   gap: 7px;
   overflow: visible;
@@ -1246,8 +1294,8 @@ main {
 
 .campaign-proof-icon {
   display: grid;
-  width: 32px;
-  height: 32px;
+  width: 37px;
+  height: 37px;
   place-items: center;
   border: 1px solid color-mix(in srgb, currentColor 38%, transparent);
   border-radius: 7px;
@@ -1264,7 +1312,7 @@ main {
 .campaign-proof-card small {
   overflow: hidden;
   color: currentColor;
-  font-size: 0.36rem;
+  font-size: 0.5rem;
   font-weight: 950;
   letter-spacing: 0.09em;
   text-overflow: ellipsis;
@@ -1274,7 +1322,7 @@ main {
 .campaign-proof-card > div > strong {
   overflow: hidden;
   color: #fff;
-  font-size: clamp(0.7rem, 1vw, 0.95rem);
+  font-size: clamp(0.88rem, 1.16vw, 1.08rem);
   font-weight: 1000;
   letter-spacing: -0.025em;
   text-overflow: ellipsis;
@@ -1284,8 +1332,8 @@ main {
 .campaign-proof-card p {
   margin: 0;
   overflow: hidden;
-  color: rgba(255, 255, 255, 0.48);
-  font-size: 0.31rem;
+  color: rgba(255, 255, 255, 0.68);
+  font-size: 0.42rem;
   font-weight: 850;
   letter-spacing: 0.06em;
   text-overflow: ellipsis;
@@ -1295,7 +1343,7 @@ main {
 .campaign-proof-card > b {
   grid-column: 2 / -1;
   color: currentColor;
-  font-size: 0.35rem;
+  font-size: 0.44rem;
   font-weight: 950;
   letter-spacing: 0.08em;
 }
@@ -3146,6 +3194,39 @@ main {
   }
 }
 
+@keyframes rush-title-hit {
+  0%,
+  74%,
+  100% {
+    color: var(--pink);
+    translate: 0 0;
+  }
+  76% {
+    color: #fff;
+    translate: -2px 1px;
+  }
+  78% {
+    color: var(--cyan);
+    translate: 2px -1px;
+  }
+  80% {
+    color: var(--pink);
+    translate: 0 0;
+  }
+}
+
+@keyframes rush-title-line {
+  0%,
+  100% {
+    opacity: 0.52;
+    transform: scaleX(0.72) rotate(-1deg);
+  }
+  50% {
+    opacity: 1;
+    transform: scaleX(1) rotate(-1deg);
+  }
+}
+
 @keyframes radar-pulse {
   0%,
   100% {
@@ -3503,9 +3584,16 @@ main {
     padding-left: 14px;
   }
 
-  .proof-rush-heading > strong {
-    max-width: 320px;
-    font-size: 1.42rem;
+  .proof-rush-title {
+    max-width: none;
+    flex-wrap: wrap;
+    padding-inline: 0;
+    font-size: clamp(1.72rem, 7.4vw, 2.35rem);
+  }
+
+  .proof-rush-title::after {
+    right: 0;
+    left: 0;
   }
 
   .proof-rush-heading > i {
@@ -3617,12 +3705,12 @@ main {
     right: 2.5%;
     bottom: 7%;
     left: auto;
-    width: 41%;
-    min-height: 45px;
-    padding: 5px 6px;
-    grid-template-columns: 20px minmax(0, 1fr);
-    gap: 4px;
-    border-radius: 5px;
+    width: 49%;
+    min-height: 63px;
+    padding: 7px 8px;
+    grid-template-columns: 27px minmax(0, 1fr);
+    gap: 6px;
+    border-radius: 7px;
     animation-name: proof-card-mobile;
     animation-duration: 24s;
     animation-delay: 0s;
@@ -3644,39 +3732,39 @@ main {
   }
 
   .campaign-proof-icon {
-    width: 19px;
-    height: 19px;
-    border-radius: 4px;
+    width: 25px;
+    height: 25px;
+    border-radius: 5px;
   }
 
   .campaign-proof-icon svg {
-    width: 11px;
-    height: 11px;
+    width: 15px;
+    height: 15px;
   }
 
   .campaign-proof-card small {
-    font-size: 0.22rem;
-    letter-spacing: 0.06em;
+    font-size: 0.34rem;
+    letter-spacing: 0.075em;
   }
 
   .campaign-proof-card > div > strong {
-    font-size: 0.48rem;
+    font-size: 0.7rem;
   }
 
   .campaign-proof-card p {
-    font-size: 0.19rem;
+    font-size: 0.3rem;
   }
 
   .campaign-proof-card > b {
-    font-size: 0.2rem;
-    letter-spacing: 0.04em;
+    font-size: 0.31rem;
+    letter-spacing: 0.055em;
   }
 
   .campaign-proof-check {
-    top: 4px;
-    right: 4px;
-    width: 8px;
-    height: 8px;
+    top: 5px;
+    right: 5px;
+    width: 10px;
+    height: 10px;
   }
 
   .twin-proof-cloud .campaign-proof-card:nth-child(2) { animation-delay: 3s; }
