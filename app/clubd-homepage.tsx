@@ -363,7 +363,7 @@ export function ClubDHomepage() {
         <div className="hero-copy">
           <p className="eyebrow">
             <span />
-            YOUR REAL LIFE. NOW WITH STATS.
+            THE NEW-GEN SOCIAL APP FOR REAL-LIFE FLEX
           </p>
           <h1>
             PROOF IS THE
@@ -371,8 +371,9 @@ export function ClubDHomepage() {
             NEW <em>PROFILE.</em>
           </h1>
           <p className="hero-lede">
-            Build a living Digital Twin from what you actually do—your wins,
-            skills, style, stats, badges and the people who back your journey.
+            <strong>ClubD turns your real life into a social profile.</strong>
+            Your wins, skills, stats, style and verified products build one
+            living Digital Twin—made to flex, share, rank and level up.
           </p>
           <div className="hero-actions">
             <a className="primary-button" href="#download">
@@ -380,15 +381,18 @@ export function ClubDHomepage() {
               <ArrowRight size={18} />
             </a>
             <a className="text-button" href="#twin">
-              <CirclePlay size={21} /> SEE HOW IT WORKS
+              <CirclePlay size={21} /> SEE CLUBD IN ACTION
             </a>
           </div>
           <div className="hero-proof">
             <span>
-              <BadgeCheck size={16} /> VERIFIED PROGRESS
+              <Flame size={16} /> FLEX FEED
             </span>
             <span>
-              <Orbit size={16} /> ONE EVOLVING IDENTITY
+              <Orbit size={16} /> LIVING DIGITAL TWIN
+            </span>
+            <span>
+              <Gem size={16} /> VERIFIED VAULT
             </span>
           </div>
         </div>

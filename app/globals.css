@@ -331,6 +331,14 @@ main {
   line-height: 1.58;
 }
 
+.hero-lede strong {
+  display: block;
+  margin-bottom: 4px;
+  color: #fff;
+  font-size: 1.08em;
+  font-weight: 900;
+}
+
 .hero-actions {
   display: flex;
   margin-top: 34px;
@@ -403,25 +411,38 @@ main {
 .hero-proof {
   display: flex;
   margin-top: 36px;
-  gap: 24px;
+  flex-wrap: wrap;
+  gap: 12px;
 }
 
 .hero-proof span {
   display: flex;
+  padding: 7px 10px;
   align-items: center;
   gap: 7px;
-  color: rgba(255, 255, 255, 0.37);
-  font-size: 0.55rem;
-  font-weight: 900;
-  letter-spacing: 0.12em;
+  border: 1px solid rgba(68, 233, 255, 0.28);
+  border-radius: 3px 10px;
+  background: rgba(68, 233, 255, 0.055);
+  color: rgba(255, 255, 255, 0.76);
+  font-size: 0.58rem;
+  font-weight: 950;
+  letter-spacing: 0.08em;
 }
 
-.hero-proof span:first-child svg {
+.hero-proof span:nth-child(1) {
+  border-color: rgba(255, 50, 181, 0.38);
+  background: rgba(255, 50, 181, 0.065);
+  color: var(--pink);
+}
+
+.hero-proof span:nth-child(2) {
   color: var(--cyan);
 }
 
-.hero-proof span:last-child svg {
-  color: var(--violet);
+.hero-proof span:nth-child(3) {
+  border-color: rgba(199, 255, 45, 0.36);
+  background: rgba(199, 255, 45, 0.055);
+  color: var(--lime);
 }
 
 .hero-visual {
