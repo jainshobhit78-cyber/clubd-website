@@ -5980,3 +5980,154 @@ main {
     font-size: 0.38rem;
   }
 }
+
+/* Mobile performance pass: preserve the energy, remove constant GPU work. */
+@media (max-width: 860px) {
+  html,
+  body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: clip;
+  }
+
+  body {
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a,
+  button {
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .site-noise,
+  .pointer-aura,
+  .hero-signal,
+  .hero-social::before,
+  .campaign-glitch,
+  .campaign-noise,
+  .rush-laser,
+  .download-radar {
+    display: none;
+  }
+
+  .site-header {
+    background: rgba(5, 5, 9, 0.94);
+    box-shadow: 0 12px 34px rgba(0, 0, 0, 0.34);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+
+  .site-header nav a,
+  .menu-button,
+  .text-button {
+    min-height: 46px;
+  }
+
+  .hero-social,
+  .hero-flex-media,
+  .campaign-frame,
+  .twin-lab,
+  .screen-gallery,
+  .showcase-card-stage {
+    contain: layout paint;
+  }
+
+  .hero-social {
+    box-shadow: 0 26px 62px rgba(0, 0, 0, 0.46);
+    transform: translateZ(0);
+  }
+
+  .hero-flex-media > img {
+    animation: none;
+    filter: saturate(1.04) contrast(1.03);
+    transform: scale(1.01);
+  }
+
+  .hero-twin-update,
+  .floating-proof,
+  .live-proof-card,
+  .live-proof-profile,
+  .rush-activity,
+  .campaign-proof-card,
+  .twin-node,
+  .showcase-verified-pill {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+
+  .proof-rush-card,
+  .campaign-image,
+  .twin-person,
+  .twin-platform,
+  .twin-platform::before,
+  .twin-platform::after,
+  .twin-scan,
+  .twin-node,
+  .screen-gallery .phone-frame,
+  .showcase-card-photo::after,
+  .showcase-proof-reel::after {
+    animation: none;
+  }
+
+  .campaign-image,
+  .twin-person,
+  .showcase-card-photo > img,
+  .showcase-proof-reel > img {
+    filter: none;
+  }
+
+  .proof-marquee > div,
+  .live-proof-window {
+    will-change: transform;
+  }
+
+  main > section:not(.hero),
+  main > .proof-marquee,
+  main > .site-footer {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 850px;
+  }
+
+  .primary-button,
+  .store-button,
+  .showcase-flip-control {
+    min-height: 54px;
+  }
+}
+
+@media (max-width: 580px) {
+  .hero-flex-card,
+  .hero-twin-update,
+  .hero-social-rail,
+  .hero-level-alert {
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+  }
+
+  .hero-social {
+    background-size: 36px 36px, 36px 36px, auto, auto;
+  }
+
+  .campaign-section,
+  .intro-section,
+  .twin-section,
+  .stats-section,
+  .feature-section,
+  .screens-section,
+  .journey-section,
+  .world-section,
+  .download-section {
+    overflow: clip;
+  }
+}
+
+@media (hover: none) {
+  .primary-button:hover,
+  .feature-card:hover,
+  .world-card:hover,
+  .store-button:hover {
+    transform: none;
+  }
+}

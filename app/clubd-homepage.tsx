@@ -306,12 +306,15 @@ export function ClubDHomepage() {
     );
     if (proofStage) scanObserver.observe(proofStage);
 
-    window.addEventListener("pointermove", updatePointer, { passive: true });
+    const hasFinePointer = window.matchMedia("(pointer: fine)").matches;
+    if (hasFinePointer) {
+      window.addEventListener("pointermove", updatePointer, { passive: true });
+    }
 
     return () => {
       observer.disconnect();
       scanObserver.disconnect();
-      window.removeEventListener("pointermove", updatePointer);
+      if (hasFinePointer) window.removeEventListener("pointermove", updatePointer);
     };
   }, []);
 
@@ -425,7 +428,7 @@ export function ClubDHomepage() {
                 fill
                 priority
                 sizes="(max-width: 860px) 86vw, 42vw"
-                src="/clubd-proof-rush-v2.png"
+                src="/clubd-proof-rush-hero.jpg"
                 unoptimized
               />
               <span className="hero-proof-lock"><BadgeCheck size={14} /> PROOF LOCKED</span>
