@@ -426,6 +426,7 @@ export function ClubDHomepage() {
                 priority
                 sizes="(max-width: 860px) 86vw, 42vw"
                 src="/clubd-proof-rush-v2.png"
+                unoptimized
               />
               <span className="hero-proof-lock"><BadgeCheck size={14} /> PROOF LOCKED</span>
               <div className="hero-flex-result">
