@@ -363,74 +363,106 @@ export function ClubDHomepage() {
         <div className="hero-copy">
           <p className="eyebrow">
             <span />
-            THE NEW-GEN SOCIAL APP FOR REAL-LIFE FLEX
+            THE SOCIAL NETWORK FOR WHAT YOU DO, OWN &amp; ACHIEVE
           </p>
           <h1>
-            PROOF IS THE
+            FLEX YOUR LIFE.
             <br />
-            NEW <em>PROFILE.</em>
+            BUILD YOUR
+            <br />
+            <em>DIGITAL TWIN.</em>
           </h1>
           <p className="hero-lede">
-            <strong>ClubD turns your real life into a social profile.</strong>
-            Your wins, skills, stats, style and verified products build one
-            living Digital Twin—made to flex, share, rank and level up.
+            <strong>Next-gen social media, powered by your real life.</strong>
+            Post gym PRs, code streaks, sports wins, fits and rare finds. ClubD
+            verifies the proof, upgrades your living Digital Twin and turns it
+            into flex your people can see.
           </p>
+          <div className="hero-loop" aria-label="How ClubD works">
+            <span><b>01</b> POST REAL PROOF</span>
+            <ArrowRight size={15} aria-hidden="true" />
+            <span><b>02</b> GET VERIFIED</span>
+            <ArrowRight size={15} aria-hidden="true" />
+            <span><b>03</b> TWIN LEVELS UP</span>
+          </div>
           <div className="hero-actions">
             <a className="primary-button" href="#download">
-              BUILD YOUR TWIN
+              JOIN THE FLEX FEED
               <ArrowRight size={18} />
             </a>
             <a className="text-button" href="#twin">
-              <CirclePlay size={21} /> SEE CLUBD IN ACTION
+              <CirclePlay size={21} /> WATCH HOW CLUBD WORKS
             </a>
           </div>
-          <div className="hero-proof">
-            <span>
-              <Flame size={16} /> FLEX FEED
-            </span>
-            <span>
-              <Orbit size={16} /> LIVING DIGITAL TWIN
-            </span>
-            <span>
-              <Gem size={16} /> VERIFIED VAULT
-            </span>
+          <div className="hero-worlds" aria-label="Things you can flex on ClubD">
+            <span>FITNESS</span><i />
+            <span>FASHION</span><i />
+            <span>SPORTS</span><i />
+            <span>CODING</span><i />
+            <span>ESPORTS</span>
           </div>
         </div>
 
-        <div className="hero-visual" aria-label="ClubD app preview">
-          <div className="orbit-ring orbit-ring-one" />
-          <div className="orbit-ring orbit-ring-two" />
-          <PhoneFrame
-            className="hero-phone"
-            image="/clubd-splash.jpeg"
-            label="ClubD identity and achievement experience"
-            priority
-          />
-          <div className="floating-proof proof-one">
-            <span>
-              <Dumbbell size={15} />
-            </span>
-            <small>NEW PR</small>
-            <strong>145 KG</strong>
-            <i>+18 AURA</i>
+        <div className="hero-social" aria-label="A ClubD Flex Feed post becoming part of a Digital Twin">
+          <div className="hero-social-topline">
+            <span><i /> FLEX FEED / LIVE</span>
+            <strong>REAL PEOPLE. REAL PROOF.</strong>
           </div>
-          <div className="floating-proof proof-two">
-            <span>
-              <Trophy size={15} />
-            </span>
-            <small>ARENA RANK</small>
-            <strong>TOP 5%</strong>
-            <i>↑ 12</i>
+
+          <article className="hero-flex-card">
+            <header>
+              <div className="hero-flex-avatar">V</div>
+              <div>
+                <strong>VISHAL</strong>
+                <span>@vishal.lifts / DELHI</span>
+              </div>
+              <BadgeCheck size={18} aria-label="Verified profile" />
+              <small>JUST NOW</small>
+            </header>
+            <div className="hero-flex-media">
+              <Image
+                alt="Athletes, creators and builders sharing real achievements on ClubD"
+                fill
+                priority
+                sizes="(max-width: 860px) 86vw, 42vw"
+                src="/clubd-proof-rush-v2.png"
+              />
+              <span className="hero-proof-lock"><BadgeCheck size={14} /> PROOF LOCKED</span>
+              <div className="hero-flex-result">
+                <small>NEW DEADLIFT PR</small>
+                <strong>175 KG</strong>
+                <span>GYM VERIFIED / TOP 7% NEARBY</span>
+              </div>
+            </div>
+            <footer>
+              <span><Flame size={15} /> 1.8K IMPRESSED</span>
+              <strong>+146 AURA</strong>
+            </footer>
+          </article>
+
+          <aside className="hero-twin-update">
+            <div className="hero-twin-head">
+              <span><Orbit size={17} /> DIGITAL TWIN</span>
+              <i>LIVE</i>
+            </div>
+            <div className="hero-twin-person">
+              <div>V</div>
+              <span><small>VISHAL_001</small><strong>LVL 28</strong></span>
+            </div>
+            <p>TWIN UPDATED FROM VERIFIED PROOF</p>
+            <div className="hero-twin-stats">
+              <span><small>STRENGTH</small><strong>92</strong><i>+4</i></span>
+              <span><small>AURA</small><strong>847</strong><i>+146</i></span>
+              <span><small>FLEX SCORE</small><strong>8.4K</strong><i>UP</i></span>
+            </div>
+          </aside>
+
+          <div className="hero-social-rail" aria-label="ClubD product pillars">
+            <span><Flame size={15} /><b>FLEX FEED</b><small>SHARE IT</small></span>
+            <span><Orbit size={15} /><b>DIGITAL TWIN</b><small>BUILD IT</small></span>
+            <span><Gem size={15} /><b>VERIFIED VAULT</b><small>OWN IT</small></span>
           </div>
-          <div className="floating-proof proof-three">
-            <span>
-              <Shirt size={15} />
-            </span>
-            <small>VAULT DROP</small>
-            <strong>JORDAN 1</strong>
-            <i>RARE</i>
-          </div>
-          <div className="hero-sticker">NO FAKE FLEX</div>
+          <div className="hero-level-alert"><Zap size={16} /> YOUR TWIN JUST LEVELLED UP</div>
         </div>
 
         <a aria-label="Scroll to learn more" className="scroll-cue" href="#intro">
