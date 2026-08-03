@@ -378,8 +378,8 @@ export function ClubDHomepage() {
           <p className="hero-lede">
             <strong>Next-gen social media, powered by your real life.</strong>
             Post gym PRs, code streaks, sports wins, fits and rare finds. ClubD
-            verifies the proof, upgrades your living Digital Twin and turns it
-            into flex your people can see.
+            verifies the proof and trains your hyper-personal AI Twin to know
+            the real you, show your best next move and level you up IRL.
           </p>
           <div className="hero-loop" aria-label="How ClubD works">
             <span><b>01</b> POST REAL PROOF</span>
@@ -446,27 +446,28 @@ export function ClubDHomepage() {
 
           <aside className="hero-twin-update">
             <div className="hero-twin-head">
-              <span><Orbit size={17} /> DIGITAL TWIN</span>
-              <i>LIVE</i>
+              <span><Sparkles size={17} /> YOUR AI DIGITAL TWIN</span>
+              <i>LEARNING</i>
             </div>
             <div className="hero-twin-person">
               <div>V</div>
-              <span><small>VISHAL_001</small><strong>LVL 28</strong></span>
+              <span><small>VISHAL_001</small><strong>PERSONAL AI</strong></span>
             </div>
-            <p>TWIN UPDATED FROM VERIFIED PROOF</p>
-            <div className="hero-twin-stats">
-              <span><small>STRENGTH</small><strong>92</strong><i>+4</i></span>
-              <span><small>AURA</small><strong>847</strong><i>+146</i></span>
-              <span><small>FLEX SCORE</small><strong>8.4K</strong><i>UP</i></span>
+            <p>KNOWS YOUR REAL STATS · STYLE · HABITS · GOALS</p>
+            <div className="hero-ai-scenario">
+              <header><Sparkles size={13} /><span>FUTURE SIM / 82% MATCH</span></header>
+              <small>IF / 4 TRAINING DAYS + FULL RECOVERY</small>
+              <strong>THEN / 180 KG PR PATH</strong>
+              <b>BEST NEXT MOVE → RECOVERY DAY</b>
             </div>
           </aside>
 
           <div className="hero-social-rail" aria-label="ClubD product pillars">
             <span><Flame size={15} /><b>FLEX FEED</b><small>SHARE IT</small></span>
-            <span><Orbit size={15} /><b>DIGITAL TWIN</b><small>BUILD IT</small></span>
+            <span><Orbit size={15} /><b>AI DIGITAL TWIN</b><small>GUIDES YOU</small></span>
             <span><Gem size={15} /><b>VERIFIED VAULT</b><small>OWN IT</small></span>
           </div>
-          <div className="hero-level-alert"><Zap size={16} /> YOUR TWIN JUST LEVELLED UP</div>
+          <div className="hero-level-alert"><Zap size={16} /> YOUR AI FOUND A BETTER PATH</div>
         </div>
 
         <a aria-label="Scroll to learn more" className="scroll-cue" href="#intro">
@@ -571,27 +572,26 @@ export function ClubDHomepage() {
           />
           <div className="campaign-twin-copy">
             <span className="campaign-twin-kicker">
-              <Orbit size={13} /> YOUR LIVING DIGITAL TWIN
+              <Sparkles size={13} /> YOUR HYPER-PERSONAL AI TWIN
             </span>
             <h3>
-              THE REAL YOU.
+              REAL DATA IN.
               <br />
-              <em>NOW ALIVE.</em>
+              <em>BETTER YOU OUT.</em>
             </h3>
             <p>
-              What you wear. The stats you earn. The skills you build. The
-              wins you prove.
+              It learns your stats, style, habits, products and goals—then
+              shows your best next move.
             </p>
             <div className="campaign-twin-tags" aria-label="Digital Twin attributes">
-              <span>STYLE</span>
-              <span>STATS</span>
-              <span>SKILLS</span>
-              <span>WINS</span>
+              <span>KNOWS YOU</span>
+              <span>SEES AHEAD</span>
+              <span>GUIDES YOU</span>
             </div>
             <strong>
-              ONE TWIN THAT <i>EVOLVES</i>
+              NOT A QUIZ. NOT GENERIC.
               <br />
-              WHEN REAL LIFE DOES.
+              <i>BUILT FROM YOUR LIFE.</i>
             </strong>
           </div>
           <div className="twin-proof-cloud" aria-label="Examples of proof added to a Digital Twin">
@@ -621,9 +621,9 @@ export function ClubDHomepage() {
           <span className="campaign-corner campaign-corner-two" aria-hidden="true" />
         </div>
         <div className="campaign-caption">
-          <p>STYLE · STATS · SKILLS · WINS</p>
-          <strong>EVERY REAL MOVE UPDATES THE DIGITAL YOU.</strong>
-          <span>PROOF IN / YOUR TWIN EVOLVES ↓</span>
+          <p>REAL DATA → AI TWIN → BEST NEXT MOVE</p>
+          <strong>YOUR LIFE TRAINS THE AI. THE AI LEVELS UP YOUR LIFE.</strong>
+          <span>ASK “WHAT IF?” / SEE WHAT HAPPENS ↓</span>
         </div>
       </section>
 
@@ -654,24 +654,30 @@ export function ClubDHomepage() {
 
       <section className="twin-section" id="twin">
         <div className="twin-copy reveal">
-          <p className="section-index">02 · YOUR LIVING IDENTITY</p>
+          <p className="section-index">02 · YOUR PERSONAL AI</p>
           <p className="eyebrow cyan">
-            <Orbit size={15} /> DIGITAL TWIN / VERSION 001
+            <Sparkles size={15} /> DIGITAL TWIN / ALWAYS LEARNING
           </p>
           <h2>
-            IT LOOKS LIKE YOU.
+            NOT A QUIZ.
             <br />
-            IT LEVELS UP
+            NOT A GENERIC
             <br />
-            <span>BECAUSE OF YOU.</span>
+            <span>CHATBOT.</span>
           </h2>
           <p>
-            Your Twin brings every side of you into one evolving identity.
-            Add the fit. Link the stat. Verify the win. Let the world watch
-            your signal get louder.
+            Your Digital Twin learns from your verified stats, habits, style,
+            products, wins and goals. Ask “what if?” and it runs future
+            scenarios from your real data—then gives you the next move to help
+            you look better, feel better and perform better in real life.
           </p>
+          <div className="twin-ai-steps" aria-label="How the ClubD AI Digital Twin helps you">
+            <article><b>01</b><span><strong>KNOWS THE REAL YOU</strong><small>STATS · STYLE · HABITS · GOALS</small></span></article>
+            <article><b>02</b><span><strong>SHOWS “WHAT IF?”</strong><small>FUTURE PATHS BEFORE YOU CHOOSE</small></span></article>
+            <article><b>03</b><span><strong>GIVES THE NEXT MOVE</strong><small>LOOK · FEEL · PERFORM BETTER</small></span></article>
+          </div>
           <a className="line-link" href="#features">
-            EXPLORE THE SYSTEM <ArrowRight size={17} />
+            MEET YOUR AI TWIN <ArrowRight size={17} />
           </a>
         </div>
 
@@ -724,7 +730,7 @@ export function ClubDHomepage() {
             </span>
           </div>
           <span className="twin-status">
-            <i /> TWIN ONLINE
+            <i /> AI TWIN / LEARNING
           </span>
         </div>
       </section>

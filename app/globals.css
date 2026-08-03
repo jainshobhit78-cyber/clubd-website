@@ -1783,6 +1783,68 @@ main {
   line-height: 1.7;
 }
 
+.twin-ai-steps {
+  display: grid;
+  max-width: 570px;
+  margin-top: 26px;
+  gap: 7px;
+}
+
+.twin-ai-steps article {
+  display: grid;
+  min-height: 58px;
+  padding: 9px 12px;
+  grid-template-columns: 36px 1fr;
+  align-items: center;
+  gap: 10px;
+  border: 1px solid rgba(68, 233, 255, 0.13);
+  border-radius: 4px 12px 4px 12px;
+  background: rgba(68, 233, 255, 0.035);
+}
+
+.twin-ai-steps article:nth-child(2) {
+  border-color: rgba(255, 50, 181, 0.18);
+  background: rgba(255, 50, 181, 0.035);
+}
+
+.twin-ai-steps article:nth-child(3) {
+  border-color: rgba(199, 255, 45, 0.17);
+  background: rgba(199, 255, 45, 0.03);
+}
+
+.twin-ai-steps article > b {
+  color: var(--cyan);
+  font-size: 0.63rem;
+  font-weight: 1000;
+}
+
+.twin-ai-steps article:nth-child(2) > b {
+  color: var(--pink);
+}
+
+.twin-ai-steps article:nth-child(3) > b {
+  color: var(--lime);
+}
+
+.twin-ai-steps article > span {
+  display: grid;
+  gap: 4px;
+}
+
+.twin-ai-steps strong {
+  color: #fff;
+  font-size: 0.63rem;
+  font-weight: 1000;
+  letter-spacing: 0.065em;
+}
+
+.twin-ai-steps small {
+  color: rgba(255, 255, 255, 0.42);
+  font-size: 0.42rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+}
+
 .line-link {
   display: inline-flex;
   margin-top: 34px;
@@ -5654,6 +5716,51 @@ main {
   font-size: 0.43rem;
   font-weight: 950;
   letter-spacing: 0.09em;
+}
+
+.hero-ai-scenario {
+  display: grid;
+  padding: 10px;
+  gap: 7px;
+  border: 1px solid rgba(255, 50, 181, 0.28);
+  border-radius: 4px 11px;
+  background:
+    linear-gradient(135deg, rgba(119, 87, 255, 0.1), transparent 60%),
+    rgba(255, 255, 255, 0.025);
+}
+
+.hero-ai-scenario header {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--pink);
+}
+
+.hero-ai-scenario header span,
+.hero-ai-scenario > small {
+  font-size: 0.38rem;
+  font-weight: 950;
+  letter-spacing: 0.075em;
+}
+
+.hero-ai-scenario > small {
+  color: rgba(255, 255, 255, 0.48);
+}
+
+.hero-ai-scenario > strong {
+  color: #fff;
+  font-size: 0.7rem;
+  font-weight: 1000;
+  letter-spacing: 0.035em;
+}
+
+.hero-ai-scenario > b {
+  padding-top: 7px;
+  border-top: 1px solid rgba(199, 255, 45, 0.14);
+  color: var(--lime);
+  font-size: 0.4rem;
+  font-weight: 1000;
+  letter-spacing: 0.07em;
 }
 
 .hero-twin-stats {

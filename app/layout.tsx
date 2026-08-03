@@ -1,27 +1,20 @@
 import type { Metadata } from "next";
-import { headers } from "next/headers";
 import "./globals.css";
 
-export async function generateMetadata(): Promise<Metadata> {
-  const requestHeaders = await headers();
-  const host =
-    requestHeaders.get("x-forwarded-host") ??
-    requestHeaders.get("host") ??
-    "clubd.app";
-  const protocol =
-    requestHeaders.get("x-forwarded-proto") ??
-    (host.includes("localhost") ? "http" : "https");
-  const metadataBase = new URL(`${protocol}://${host}`);
+export function generateMetadata(): Metadata {
+  const metadataBase = new URL("https://clubd.in");
   const description =
-    "Build a living Digital Twin from your real progress, verified wins, stats, badges, products and people.";
+    "ClubD is next-gen social media powered by a hyper-personal AI Digital Twin that learns from your real stats, style, habits, products and verified wins.";
 
   return {
     metadataBase,
-    title: "ClubD — Proof Is the New Profile",
+    title: "ClubD — Your Hyper-Personal AI Digital Twin",
     description,
     keywords: [
       "ClubD",
       "Digital Twin",
+      "personal AI",
+      "AI coach",
       "verified achievements",
       "social identity",
       "sports",
@@ -34,20 +27,20 @@ export async function generateMetadata(): Promise<Metadata> {
     },
     openGraph: {
       type: "website",
-      title: "ClubD — Proof Is the New Profile",
+      title: "ClubD — Your Hyper-Personal AI Digital Twin",
       description,
       images: [
         {
           url: "/og.png",
           width: 1734,
           height: 909,
-          alt: "ClubD — Proof Is the New Profile",
+          alt: "ClubD — Your Hyper-Personal AI Digital Twin",
         },
       ],
     },
     twitter: {
       card: "summary_large_image",
-      title: "ClubD — Proof Is the New Profile",
+      title: "ClubD — Your Hyper-Personal AI Digital Twin",
       description,
       images: ["/og.png"],
     },
